@@ -22,7 +22,7 @@ ActuatorCfg = IdealPDActuatorCfg #ImplicitActuatorCfg
 
 BUMPYBOT_CFG = ArticulationCfg(
     spawn=sim_utils.UrdfFileCfg(
-        fix_base=False,
+        fix_base=True,
         merge_fixed_joints=True,
         make_instanceable=True,
         asset_path=os.path.abspath(os.path.join(os.path.dirname(__file__), "bumpybot.urdf")),
@@ -43,57 +43,27 @@ BUMPYBOT_CFG = ArticulationCfg(
         ),
     ),
     init_state=ArticulationCfg.InitialStateCfg(
-        pos=(0.0, 0.0, 0.4),
+        pos=(0.0, 0.0, 0.35),
         joint_pos={".*" : 0.000},
         joint_vel={".*": 0.000},
     ),
-    soft_joint_pos_limit_factor=0.9,
+    #soft_joint_pos_limit_factor=1.0,
     actuators={
-        "planar": ActuatorCfg(
-            joint_names_expr=["dummy_x_joint", "dummy_y_joint"],
-            effort_limit=10.0,
-            velocity_limit=100.0,
-            stiffness={"dummy_.*": 20.0},
-            damping={"dummy_.*": 1.0},
-            friction={"dummy_.*": 0.0},
+        "prismatic": ActuatorCfg(
+            joint_names_expr=["dummy_prismatic.*"],
+            effort_limit=1000.0,
+            velocity_limit=2.0,
+            stiffness={"dummy_prismatic.*": 0}, #2e-3
+            damping={"dummy_prismatic.*": 100}, #1e-5
+            friction={"dummy_prismatic.*": 0.0},
         ),
-         "yaw": ActuatorCfg(
-            joint_names_expr=["dummy_yaw_joint"],
-            effort_limit=10.0,
-            velocity_limit=100.0,
-            stiffness={"dummy_.*": 20.0},
-            damping={"dummy_.*": 1.0},
-            friction={"dummy_.*": 0.0},
+         "revolute": ActuatorCfg(
+            joint_names_expr=["dummy_revolute.*"],
+            effort_limit=1000.0,
+            velocity_limit=6.0,
+            stiffness={"dummy_revolute.*": 0},
+            damping={"dummy_revolute.*": 100},
+            friction={"dummy_revolute.*": 0.0},
          ),
     }
 )
-"""
-Ordered Joints:
-0:  'l_hip_ie',
-1:  'l_shoulder_fe',
-2:  'neck_pitch',
-3:  'r_hip_ie',
-4:  'r_shoulder_fe',
-5:  'l_hip_aa',
-6:  'l_shoulder_aa',
-7:  'r_hip_aa',
-8:  'r_shoulder_aa',
-9:  'l_hip_fe',
-10: 'l_shoulder_ie',
-11: 'r_hip_fe',
-12: 'r_shoulder_ie',
-13: 'l_knee_fe_jp',
-14: 'l_elbow_fe',
-15: 'r_knee_fe_jp',
-16: 'r_elbow_fe',
-17: 'l_knee_fe_jd',
-18: 'l_wrist_ps',
-19: 'r_knee_fe_jd',
-20: 'r_wrist_ps',
-21: 'l_ankle_fe',
-22: 'l_wrist_pitch',
-23: 'r_ankle_fe',
-24: 'r_wrist_pitch',
-25: 'l_ankle_ie',
-26: 'r_ankle_ie']
-"""
