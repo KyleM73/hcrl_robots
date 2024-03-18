@@ -235,12 +235,12 @@
       <mass value="1e-9"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
     </inertial>
-    <collision>
+    <!--<collision>
       <origin rpy="0 0 0" xyz="0 0 -0.07"/>
       <geometry>
         <box size="0.1 0.1 0.3"/>
       </geometry>
-    </collision>
+    </collision>-->
   </link>
 
   <!--=============================== l_wrist_mount (l_sake_gripper_link) ===========================-->
@@ -447,12 +447,12 @@
       <mass value="1e-9"/>
       <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
     </inertial>
-    <collision>
+    <!--<collision>
       <origin rpy="0 0 0" xyz="0 0 -0.07"/>
       <geometry>
         <box size="0.1 0.1 0.3"/>
       </geometry>
-    </collision>
+    </collision>-->
   </link>
 
   <!--=============================== r_wrist_mount (r_sake_gripper_link) ===========================-->
@@ -651,6 +651,7 @@
     <child link="l_knee_fe_ld"/>
     <axis xyz="0 1 0"/>
     <limit effort="40.85" lower="-0.0872665" upper="1.52716" velocity="13.35"/>
+    <mimic joint="l_knee_fe_jp" multiplier="1.0" offset="0.0"/>
   </joint>
   <link name="l_knee_fe_ld">
     <visual>
@@ -885,6 +886,7 @@
     <axis xyz="0 1 0"/>
     <limit effort="40.85" lower="-0.0872665" upper="1.52716" velocity="13.35"/>
     <joint_properties friction="0.0"/>
+    <mimic joint="r_knee_fe_jp" multiplier="1.0" offset="0.0"/>
   </joint>
   <link name="r_knee_fe_ld">
     <visual>
