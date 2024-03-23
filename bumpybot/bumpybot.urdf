@@ -1,10 +1,19 @@
 <?xml version="1.0"?>
 <robot name="bumpybot">
-  <link name="base_link">
+  <link name="base">
     <inertial>
         <mass value="1e-9"/>
         <inertia ixx="1e-9" ixy="0.0" ixz="0.0" iyy="1e-9" iyz="0.0" izz="1e-9"/>
     </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.4" radius="0.1"/>
+      </geometry>
+      <material name="r">
+        <color rgba="1 0 0 0.7"/>
+      </material>
+    </visual>
   </link>
   
   <link name="dummy_prismatic_x_link">
@@ -12,12 +21,21 @@
         <mass value="1e-9"/>
         <inertia ixx="1e-9" ixy="0.0" ixz="0.0" iyy="1e-9" iyz="0.0" izz="1e-9"/>
     </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.4" radius="0.1"/>
+      </geometry>
+      <material name="g">
+        <color rgba="0 1 0 0.7"/>
+      </material>
+    </visual>
   </link>
 
   <joint name="dummy_prismatic_x_joint" type="prismatic">
     <axis xyz="1 0 0"/>
     <origin xyz="0 0 0"/>
-    <parent link="base_link"/>
+    <parent link="base"/>
     <child link="dummy_prismatic_x_link"/>
     <limit effort="1000.0" lower="-20" upper="20" velocity="10"/>
   </joint>
@@ -27,6 +45,15 @@
         <mass value="1e-9"/>
         <inertia ixx="1e-9" ixy="0.0" ixz="0.0" iyy="1e-9" iyz="0.0" izz="1e-9"/>
     </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.4" radius="0.1"/>
+      </geometry>
+      <material name="b">
+        <color rgba="0 0 1 0.7"/>
+      </material>
+    </visual>
   </link>
 
   <joint name="dummy_prismatic_y_joint" type="prismatic">
@@ -44,25 +71,25 @@
        <inertia ixx="1.13" ixy="0" ixz="0" iyy="1.13" iyz="0" izz="1.13"/> <!--0.5649801*m-->
     </inertial>
     <visual>
-      <origin rpy="0 0 1.57" xyz="0 0 -0.21"/>
+      <!--<origin rpy="0 0 1.57" xyz="0 0 -0.21"/>-->
+      <origin rpy="0 0 1.5708" xyz="0 0 0"/>
       <geometry>
-        <!--<cylinder length="0.6318758" radius="0.3048"/>-->
-        <mesh filename="package://meshes/bumpybot_exterior.stl" scale="0.0009 0.0009 0.0009"/>
+        <mesh filename="package://meshes/bumpybot_full.stl" scale="0.0015 0.0015 0.0015"/>
       </geometry>
       <!--<material name="burnt orange">
         <color rgba="0.75 0.34 0 1"/>
       </material>-->
     </visual>
-    <collision>
-      <origin xyz="0.0 0.0 0.0" rpy="0 0 0" />
+    <!--<collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.6318758" radius="0.3048"/> <!--this is a bad approximation-->
+       <cylinder length="0.6318758" radius="0.3048"/>
       </geometry>
-    </collision>
+    </collision>-->
   </link>
 
   <joint name="dummy_revolute_yaw_joint" type="revolute">
-    <axis xyz="0 0 1"/>
+    <axis xyz="0 0 0"/>
     <origin xyz="0 0 0"/>
     <parent link="dummy_prismatic_y_link"/>
     <child link="dummy_revolute_yaw_link"/>
