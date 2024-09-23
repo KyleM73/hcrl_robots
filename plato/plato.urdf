@@ -301,12 +301,11 @@
   </joint>
 
 
-
-<link name="plato_link0">
+<link name="plato_base">
 <visual>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://hand_base_visual.stl"/>
+<mesh filename="package:///hand_base_visual.stl"/>
 </geometry>
 <material name="hand_base_material">
 <color rgba="0.62757649539087578816 0.63052391066502100347 0.63406435937041094597 1.0"/>
@@ -315,7 +314,7 @@
 <collision>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://hand_base_collision.stl"/>
+<mesh filename="package:///hand_base_collision.stl"/>
 </geometry>
 </collision>
 <inertial>
@@ -325,11 +324,17 @@
 </inertial>
 </link>
 
+<joint name="panda_joint9" type="fixed">
+  <origin rpy="3.14 -1.57 0" xyz="0 0 0"/>
+  <parent link="panda_link8"/>
+  <child link="plato_base"/>
+</joint>
+
 <link name="plato_finger0_mcp">
 <visual>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://thumb_metacarpal_visual.stl"/>
+<mesh filename="package:///thumb_metacarpal_visual.stl"/>
 </geometry>
 <material name="thumb_metacarpal_material">
 <color rgba="0.47481548487313229856 0.49707036313748559353 0.54567970250436259594 1.0"/>
@@ -338,7 +343,7 @@
 <collision>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://thumb_metacarpal_collision.stl"/>
+<mesh filename="package:///thumb_metacarpal_collision.stl"/>
 </geometry>
 </collision>
 <inertial>
@@ -352,7 +357,7 @@
 <visual>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://thumb_actuators_visual.stl"/>
+<mesh filename="package:///thumb_actuators_visual.stl"/>
 </geometry>
 <material name="thumb_actuators_material">
 <color rgba="0.54936477010542306143 0.54936477010542306143 0.54936477010542306143 1.0"/>
@@ -361,7 +366,7 @@
 <collision>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://thumb_actuators_collision.stl"/>
+<mesh filename="package:///thumb_actuators_collision.stl"/>
 </geometry>
 </collision>
 <inertial>
@@ -375,7 +380,7 @@
 <visual>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://thumb_proximal_visual.stl"/>
+<mesh filename="package:///thumb_proximal_visual.stl"/>
 </geometry>
 <material name="thumb_proximal_material">
 <color rgba="0.85676347476547665138 0.85684628218728142723 0.85689596664036438156 1.0"/>
@@ -384,7 +389,7 @@
 <collision>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://thumb_proximal_collision.stl"/>
+<mesh filename="package:///thumb_proximal_collision.stl"/>
 </geometry>
 </collision>
 <inertial>
@@ -398,7 +403,7 @@
 <visual>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://thumb_distal_visual.stl"/>
+<mesh filename="package:///thumb_distal_visual.stl"/>
 </geometry>
 <material name="thumb_distal_material">
 <color rgba="0.91400085189828661481 0.91668729942166382596 0.91820961968491088268 1.0"/>
@@ -407,7 +412,7 @@
 <collision>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://thumb_distal_collision.stl"/>
+<mesh filename="package:///thumb_distal_collision.stl"/>
 </geometry>
 </collision>
 <inertial>
@@ -426,15 +431,15 @@
 </link>
 <joint name="plato_finger0_ee" type="fixed">
 <origin xyz="-0.076100000000000361799 -0.0050000000000001432188 -0.0024999999998208521229" rpy="1.570796326794916542 1.0729310576333032043e-14 -3.141592653589793116" />
-<parent link="thumb_distal" />
-<child link="index_fingertip" />
+<parent link="plato_finger0_link1" />
+<child link="plato_finger0_ee" />
 <axis xyz="0 0 0"/>
 </joint>
 
 <joint name="plato_finger0_joint1" type="revolute">
 <origin xyz="0.060000000000000053291 1.3877787807814456755e-17 -1.561251128379126385e-17" rpy="1.9210078726304364333e-14 6.1050531080335562363e-15 -3.141592653589783346" />
-<parent link="thumb_proximal" />
-<child link="thumb_distal" />
+<parent link="plato_finger0_link0" />
+<child link="plato_finger0_link1" />
 <axis xyz="0 0 1"/>
 <limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-2.0943951023931952626" upper="0"/>
 <joint_properties friction="0.0"/>
@@ -442,8 +447,8 @@
 
 <joint name="plato_finger0_joint0" type="revolute">
 <origin xyz="-0.024997917591194782072 -0.01199999947845897634 -0.024000000000000007438" rpy="-1.57079632679489678 -1.6068489556680145732e-15 -3.1415926535897913396" />
-<parent link="thumb_actuators" />
-<child link="thumb_proximal" />
+<parent link="plato_finger0_actuator" />
+<child link="plato_finger0_link0" />
 <axis xyz="0 0 1"/>
 <limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-1.0471975511965976313" upper="1.0471975511965976313"/>
 <joint_properties friction="0.0"/>
@@ -451,8 +456,8 @@
 
 <joint name="plato_finger0_actuator" type="revolute">
 <origin xyz="0.058249999999999628464 -1.9580691235088210078e-16 0.032250000000000042522" rpy="-3.1415926535897891192 1.5707963267948912289 0" />
-<parent link="thumb_metacarpal" />
-<child link="thumb_actuators" />
+<parent link="plato_finger0_mcp" />
+<child link="plato_finger0_actuator" />
 <axis xyz="0 0 1"/>
 <limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-0.785398163397448279" upper="0.785398163397448279"/>
 <joint_properties friction="0.0"/>
@@ -460,18 +465,18 @@
 
 <joint name="plato_finger0_mcp" type="revolute">
 <origin xyz="0.011499999999999843681 0.039000000000000659139 -0.015849999999999926648" rpy="1.570796326794901665 0.34906585039889775901 1.5707963267949003328" />
-<parent link="hand_base" />
-<child link="thumb_metacarpal" />
+<parent link="plato_base" />
+<child link="plato_finger0_mcp" />
 <axis xyz="0 0 1"/>
 <limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-0.34906585039886589561" upper="1.2217304763960306069"/>
 <joint_properties friction="0.0"/>
 </joint>
 
-<link name="plato_finger1_joint0">
+<link name="plato_finger1_link0">
 <visual>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://index_proximal_visual.stl"/>
+<mesh filename="package:///index_proximal_visual.stl"/>
 </geometry>
 <material name="index_proximal_material">
 <color rgba="0.85676356468084313711 0.85684637213815328938 0.85689605661253964719 1.0"/>
@@ -480,9 +485,9 @@
 <collision>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://index_proximal_collision.stl"/>
+<mesh filename="package:///index_proximal_collision.stl"/>
 </geometry>
-</collision>
+</collision>plato_finger1_link1
 <inertial>
 <origin xyz="0.041723595625399345632 0.00015313747649351480522 -0.0024341161879921071817" rpy="0 0 0"/>
 <mass value="0.046493288431958879059" />
@@ -490,11 +495,11 @@
 </inertial>
 </link>
 
-<link name="plato_finger1_joint1">
+<link name="plato_finger1_link1">
 <visual>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://index_distal_visual.stl"/>
+<mesh filename="package:///index_distal_visual.stl"/>
 </geometry>
 <material name="index_distal_material">
 <color rgba="0.91400085189828650378 0.91668729942166371494 0.91820961968491077165 1.0"/>
@@ -503,7 +508,7 @@
 <collision>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://index_distal_collision.stl"/>
+<mesh filename="package:///index_distal_collision.stl"/>
 </geometry>
 </collision>
 <inertial>
@@ -520,17 +525,18 @@
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
+
 <joint name="plato_finger1_ee" type="fixed">
 <origin xyz="-0.076100000000001249978 0.0052021267064287224358 -0.0025000000001800248839" rpy="1.5707963267948970021 2.01242269850366684e-14 -3.141592653589793116" />
-<parent link="index_distal" />
-<child link="thumb_fingertip" />
+<parent link="plato_finger1_link1" />
+<child link="plato_finger1_ee" />
 <axis xyz="0 0 0"/>
 </joint>
 
 <joint name="plato_finger1_joint1" type="revolute">
 <origin xyz="0.060000000000000011657 -3.4694469519536141888e-18 0" rpy="-2.1461027329066007583e-16 3.0473921289930194632e-15 3.141592653589793116" />
-<parent link="index_proximal" />
-<child link="index_distal" />
+<parent link="plato_finger1_link0" />
+<child link="plato_finger1_link1" />
 <axis xyz="0 0 1"/>
 <limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="0" upper="2.0943951023931952626"/>
 <joint_properties friction="0.0"/>
@@ -538,8 +544,8 @@
 
 <joint name="plato_finger1_joint0" type="revolute">
 <origin xyz="0.11342115258546792145 0.041187262013853524756 0.025999851934806916809" rpy="-1.57079632679489678 2.2482016248662969818e-15 -1.850249261987616476e-15" />
-<parent link="hand_base" />
-<child link="index_proximal" />
+<parent link="plato_base" />
+<child link="plato_finger1_link0" />
 <axis xyz="0 0 1"/>
 <limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-1.0471975511965976313" upper="1.0471975511965976313"/>
 <joint_properties friction="0.0"/>
@@ -549,7 +555,7 @@
 <visual>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://middle_proximal_visual.stl"/>
+<mesh filename="package:///middle_proximal_visual.stl"/>
 </geometry>
 <material name="middle_proximal_material">
 <color rgba="0.85676347476547665138 0.85684628218728142723 0.85689596664036438156 1.0"/>
@@ -558,7 +564,7 @@
 <collision>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://middle_proximal_collision.stl"/>
+<mesh filename="package:///middle_proximal_collision.stl"/>
 </geometry>
 </collision>
 <inertial>
@@ -572,7 +578,7 @@
 <visual>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://middle_distal_visual.stl"/>
+<mesh filename="package:///middle_distal_visual.stl"/>
 </geometry>
 <material name="middle_distal_material">
 <color rgba="0.91400085189828661481 0.91668729942166382596 0.91820961968491088268 1.0"/>
@@ -581,7 +587,7 @@
 <collision>
 <origin xyz="0 0 0" rpy="0 -0 0" />
 <geometry>
-<mesh filename="package://middle_distal_collision.stl"/>
+<mesh filename="package:///middle_distal_collision.stl"/>
 </geometry>
 </collision>
 <inertial>
@@ -598,17 +604,18 @@
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
+
 <joint name="plato_finger2_ee" type="fixed">
 <origin xyz="-0.0761000000000008614 0.005000000000000059952 -0.0025000000001793101778" rpy="1.570796326794896336 -3.5331540427409998602e-16 3.141592653589793116" />
-<parent link="middle_distal" />
-<child link="middle_fingertip" />
+<parent link="plato_finger2_link1" />
+<child link="plato_finger2_ee" />
 <axis xyz="0 0 0"/>
 </joint>
 
 <joint name="plato_finger2_joint1" type="revolute">
 <origin xyz="0.05999999999999999778 3.4694469519536141888e-18 6.9388939039072283776e-18" rpy="-2.7755575615281513959e-16 3.4694469519536398268e-16 3.141592653589793116" />
-<parent link="middle_proximal" />
-<child link="middle_distal" />
+<parent link="plato_finger2_link0" />
+<child link="plato_finger2_link1" />
 <axis xyz="0 0 1"/>
 <limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="0" upper="2.0943951023931952626"/>
 <joint_properties friction="0.0"/>
@@ -616,14 +623,11 @@
 
 <joint name="plato_finger2_joint0" type="revolute">
 <origin xyz="0.11349791759135398339 -0.036249999478459471458 0.026000000000000023093" rpy="-1.570796326794896336 2.4702462297869142187e-15 1.5081753875048004426e-15" />
-<parent link="hand_base" />
-<child link="middle_proximal" />
+<parent link="plato_base" />
+<child link="plato_finger2_link0" />
 <axis xyz="0 0 1"/>
 <limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-1.0471975511965976313" upper="1.0471975511965976313"/>
 <joint_properties friction="0.0"/>
 </joint>
-
-
-</robot>
 
 </robot>
