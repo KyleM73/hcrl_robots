@@ -1,0 +1,327 @@
+<robot name="plato2">
+<link name="plato_base">
+<visual>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_base_visual.stl"/>
+</geometry>
+<material name="plato_base_material">
+<color rgba="0.76862745098039220171 0.88627450980392152857 0.95294117647058818044 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.055 0 0.015" rpy="0 -0 0" />
+<geometry>
+<!-- <mesh filename="package://meshes/plato/plato_base_collision.stl"/> -->
+<box size="0.11 0.06 0.065" />
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.072253187903399476721 0.0027042690169013089418 0.010832994409198807087" rpy="0 0 0"/>
+<mass value="0.48743034749190494725" />
+<inertia ixx="0.00047862593079525661815" ixy="5.9487871359088766588e-05"  ixz="-0.00011827147650934475198" iyy="0.00065212155154834234357" iyz="1.4829516353374399984e-05" izz="0.00077625253551394607452" />
+</inertial>
+</link>
+
+<link name="plato_finger0_mcp">
+<visual>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger0_mcp_visual.stl"/>
+</geometry>
+<material name="plato_finger0_mcp_material">
+<color rgba="0.86666666666666669627 0.32156862745098041545 0.15686274509803921351 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 -0.03 0.015" rpy="0 -0 0" />
+<geometry>
+<!-- <mesh filename="package://meshes/plato/plato_finger0_mcp_collision.stl"/> -->
+<box size="0.038 0.03 0.033" />
+</geometry>
+</collision>
+<inertial>
+<origin xyz="4.3368086812332699059e-18 -0.035858990017060971001 0.02096136181894839301" rpy="0 0 0"/>
+<mass value="0.059987560455837050932" />
+<inertia ixx="1.9336847962055060749e-05" ixy="-3.4998742149709024301e-31"  ixz="8.3553051875136875286e-29" iyy="1.6327789453929628338e-05" iyz="2.2275403852160981363e-07" izz="1.3613507982076626543e-05" />
+</inertial>
+</link>
+
+<link name="plato_finger0_actuator">
+<visual>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger0_actuator_visual.stl"/>
+</geometry>
+<material name="plato_finger0_actuator_material">
+<color rgba="0.98039215686274505668 0.71372549019607844922 0.0039215686274509803377 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0.02 0 -0.015" rpy="0 -0 0" />
+<geometry>
+<!-- <mesh filename="package://meshes/plato/plato_finger0_actuator_collision.stl"/> -->
+<box size="0.04 0.04 0.035" />
+</geometry>
+</collision>
+<inertial>
+<origin xyz="-0.0017003014462741046758 0.0034003474082472959564 -0.021509600469238610021" rpy="0 0 0"/>
+<mass value="0.097951145202285275215" />
+<inertia ixx="2.327070745163399977e-05" ixy="1.0141384320562153623e-05"  ixz="-2.5823536163417861853e-06" iyy="7.1448972019017559904e-05" iyz="3.421906922706638638e-07" izz="6.6916311631679264039e-05" />
+</inertial>
+</link>
+
+<link name="plato_finger0_link1">
+<visual>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger0_link1_visual.stl"/>
+</geometry>
+<material name="plato_finger0_link1_material">
+<color rgba="0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger0_link1_collision.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.032327885659848135114 0.00010105858651056218384 -0.0025039455945214694234" rpy="0 0 0"/>
+<mass value="0.016408945567631467305" />
+<inertia ixx="1.0305383873797942614e-06" ixy="-2.5156605351815777883e-08"  ixz="1.6765159730014295618e-09" iyy="6.5540676884658039135e-06" iyz="-3.6909321465722408623e-11" izz="6.4212583341237596527e-06" />
+</inertial>
+</link>
+
+<link name="plato_finger0_link2">
+<visual>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger0_link2_visual.stl"/>
+</geometry>
+<material name="plato_finger0_link2_material">
+<color rgba="0.37254901960784314596 0.65490196078431373028 0.23921568627450978672 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger0_link2_collision.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.033420114187910673897 0.00087489014235658465763 -0.0024991294289444230571" rpy="0 0 0"/>
+<mass value="0.017824410830501669772" />
+<inertia ixx="1.0868615018735310211e-06" ixy="-1.0926066300549407727e-07"  ixz="-6.2707510008701054345e-11" iyy="4.6336449367957920507e-06" iyz="2.9999644930155378134e-11" izz="4.3422594653121779546e-06" />
+</inertial>
+</link>
+
+<link name="plato_finger0_ee">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<joint name="plato_finger0_ee" type="fixed">
+<origin xyz="0.063094028360469539551 0.0092379839030397731259 -0.0025000000000000160982" rpy="-3.1415926535897926719 1.0178922239597187368e-17 -0.016022148110467510085" />
+<parent link="plato_finger0_link2" />
+<child link="plato_finger0_ee" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="plato_finger0_joint2" type="revolute">
+<origin xyz="0.05999999999999999778 0 -0.0049999999999998517852" rpy="-3.141592653589793116 2.7271404791364840736e-23 2.0382227532457290056e-21" />
+<parent link="plato_finger0_link1" />
+<child link="plato_finger0_link2" />
+<axis xyz="0 0 1"/>
+<limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-2.0943951023931952626" upper="0"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="plato_finger0_joint1" type="revolute">
+<origin xyz="-0.02550000000000001571 -0.0069999999999999923395 -0.024000000000000007438" rpy="1.570796326794896558 1.2969694765680609e-21 3.141592653589793116" />
+<parent link="plato_finger0_actuator" />
+<child link="plato_finger0_link1" />
+<axis xyz="0 0 1"/>
+<limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-1.0471975511965976313" upper="1.0471975511965976313"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="plato_finger0_actuator" type="revolute">
+<origin xyz="1.3877787807814456755e-17 -0.058249999999999982347 0.033249999999999967082" rpy="-1.57079632679489678 1.570796326794896558 0" />
+<parent link="plato_finger0_mcp" />
+<child link="plato_finger0_actuator" />
+<axis xyz="0 0 1"/>
+<limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-1.570796326794896558" upper="1.570796326794896558"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="plato_finger0_mcp" type="revolute">
+<origin xyz="0.010500011026526772165 0.038499992148728609531 -0.015850000116908929959" rpy="1.5707964582365219197 -3.4663894693344668523e-15 1.5707963531668935886" />
+<parent link="plato_base" />
+<child link="plato_finger0_mcp" />
+<axis xyz="0 0 1"/>
+<limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-0.34906585039886589561" upper="1.2217304763960306069"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="plato_finger1_link1">
+<visual>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger1_link1_visual.stl"/>
+</geometry>
+<material name="plato_finger1_link1_material">
+<color rgba="0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger1_link1_collision.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.03232787423603074306 -0.00010128860539808447021 -0.0025039441057958630905" rpy="0 0 0"/>
+<mass value="0.016408928599279455629" />
+<inertia ixx="1.0305320709315028797e-06" ixy="2.5184507284040099629e-08"  ixz="1.6753796059606909309e-09" iyy="6.5540591658381624555e-06" iyz="-2.6871484542664325565e-11" izz="6.4212625465929621513e-06" />
+</inertial>
+</link>
+
+<link name="plato_finger1_link2">
+<visual>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger1_link2_visual.stl"/>
+</geometry>
+<material name="plato_finger1_link2_material">
+<color rgba="0.37254901960784314596 0.65490196078431373028 0.23921568627450981448 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger1_link2_collision.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.033419892432294387441 -0.00087488562936179059808 -0.0024995866007478553632" rpy="0 0 0"/>
+<mass value="0.017824303232886661019" />
+<inertia ixx="1.0868498583484265088e-06" ixy="1.092938844654737761e-07"  ixz="4.8572454538354767255e-11" iyy="4.6336740337042243886e-06" iyz="3.0565666129865885853e-11" izz="4.3422515521949153376e-06" />
+</inertial>
+</link>
+
+<link name="plato_finger1_ee">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<joint name="plato_finger1_ee" type="fixed">
+<origin xyz="0.063094028360469539551 -0.0092379839030397731259 -0.0025000000000000230371" rpy="1.5707963267948958919 1.0178915901030053653e-17 0.016022148110467458043" />
+<parent link="plato_finger1_link2" />
+<child link="plato_finger1_ee" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="plato_finger1_joint2" type="revolute">
+<origin xyz="0.05999999999999999778 -1.0408340855860842566e-17 -0.0049999999999998379074" rpy="3.141592653589793116 1.9908495917398205473e-26 3.0704605524790294154e-16" />
+<parent link="plato_finger1_link1" />
+<child link="plato_finger1_link2" />
+<axis xyz="0 0 1"/>
+<limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="0" upper="2.0943951023931952626"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="plato_finger1_joint1" type="revolute">
+<origin xyz="0.1135000000000000453 0.034000000000002243705 0.025999999999997049777" rpy="1.5707963267948106267 -2.4286128663675290077e-17 2.2203501001526896098e-16" />
+<parent link="plato_base" />
+<child link="plato_finger1_link1" />
+<axis xyz="0 0 1"/>
+<limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-1.0471975511965976313" upper="1.0471975511965976313"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<link name="plato_finger2_link1">
+<visual>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger2_link1_visual.stl"/>
+</geometry>
+<material name="plato_finger2_link1_material">
+<color rgba="0.2313725490196078538 0.38039215686274507888 0.7058823529411765163 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger2_link1_collision.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.032327885659848135114 0.00010105858651056218384 -0.0025039455945214694234" rpy="0 0 0"/>
+<mass value="0.016408945567631467305" />
+<inertia ixx="1.0305383873797942614e-06" ixy="-2.51566053518157845e-08"  ixz="1.6765159730014221171e-09" iyy="6.5540676884658039135e-06" iyz="-3.690932146572187871e-11" izz="6.4212583341237621938e-06" />
+</inertial>
+</link>
+
+<link name="plato_finger2_link2">
+<visual>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger2_link2_visual.stl"/>
+</geometry>
+<material name="plato_finger2_link2_material">
+<color rgba="0.37254901960784314596 0.65490196078431373028 0.23921568627450978672 1.0"/>
+</material>
+</visual>
+<collision>
+<origin xyz="0 0 0" rpy="0 -0 0" />
+<geometry>
+<mesh filename="package://meshes/plato/plato_finger2_link2_collision.stl"/>
+</geometry>
+</collision>
+<inertial>
+<origin xyz="0.033420114187910618386 -0.00087489014235657761032 -0.0025008705710555744449" rpy="0 0 0"/>
+<mass value="0.017824410830501669772" />
+<inertia ixx="1.0868615018735310211e-06" ixy="1.0926066300549407727e-07"  ixz="6.2707510008712363455e-11" iyy="4.6336449367957928977e-06" iyz="2.9999644930158208642e-11" izz="4.3422594653121779546e-06" />
+</inertial>
+</link>
+
+<link name="plato_finger2_ee">
+<inertial>
+<origin xyz="0 0 0" rpy="0 0 0" />
+<mass value="1e-9" />
+<inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+</inertial>
+</link>
+<joint name="plato_finger2_ee" type="fixed">
+<origin xyz="0.063094028360469511796 -0.009237983903039766187 -0.0024999999999999814038" rpy="1.5707963267948970021 -1.017893310654182657e-17 0.016022148110467461513" />
+<parent link="plato_finger2_link2" />
+<child link="plato_finger2_ee" />
+<axis xyz="0 0 0"/>
+</joint>
+
+<joint name="plato_finger2_joint2" type="revolute">
+<origin xyz="0.059999999999999970024 6.9388939039072283776e-18 1.4571677198205179593e-16" rpy="-1.5146129380243426664e-28 1.1574569446251038759e-23 2.9910702379423482525e-21" />
+<parent link="plato_finger2_link1" />
+<child link="plato_finger2_link2" />
+<axis xyz="0 0 1"/>
+<limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="0" upper="2.0943951023931952626"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+<joint name="plato_finger2_joint1" type="revolute">
+<origin xyz="0.11350000000000096123 -0.033999999999997837508 0.026000000000003180289" rpy="-1.5707963267949827113 1.4857049400810895798e-26 5.5511151206923045817e-17" />
+<parent link="plato_base" />
+<child link="plato_finger2_link1" />
+<axis xyz="0 0 1"/>
+<limit effort="0.8499999999999999778" velocity="1.5700000000000000622" lower="-1.0471975511965976313" upper="1.0471975511965976313"/>
+<joint_properties friction="0.0"/>
+</joint>
+
+
+</robot>
