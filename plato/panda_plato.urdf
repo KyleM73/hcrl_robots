@@ -295,11 +295,11 @@
   </link>
   <joint name="panda_joint6" type="revolute">
     <safety_controller k_position="100.0" k_velocity="40.0" soft_lower_limit="-0.0175" soft_upper_limit="3.7525"/>
-    <origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
+    <origin rpy="1.5707963267948966 -3.14 0" xyz="0 0 0"/>
     <parent link="panda_link5"/>
     <child link="panda_link6"/>
     <axis xyz="0 0 1"/>
-    <limit effort="12" lower="-0.0175" upper="3.7525" velocity="2.6100"/>
+    <limit effort="12" lower="-3.0925" upper="0.6425" velocity="2.6100"/>
   </joint>
   <link name="panda_link7">
     <visual>
@@ -373,6 +373,22 @@
     <parent link="panda_link7"/>
     <child link="panda_link8"/>
   </joint> -->
+
+<!-- EE link to fix frames -->
+<link name="plato_ee">
+    <inertial>
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        <mass value="1e-8" />
+        <inertia ixx="1e-8" ixy="0.0"  ixz="0.0" iyy="1e-8" iyz="0.0" izz="1e-8" />
+    </inertial>
+</link>
+
+<joint name="panda_ee_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.12 0 -0.05"/>
+    <parent link="plato_base"/>
+    <child link="plato_ee"/>
+</joint>
+
 
 <link name="plato_base">
 <visual>
@@ -505,7 +521,7 @@
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
-<joint name="plato_finger0_ee" type="fixed">
+<joint name="plato_finger0_ee_joint" type="fixed">
 <origin xyz="0.063094028360469539551 0.0092379839030397731259 -0.0025000000000000160982" rpy="-3.1415926535897926719 1.0178922239597187368e-17 -0.016022148110467510085" />
 <parent link="plato_finger0_link2" />
 <child link="plato_finger0_ee" />
@@ -601,7 +617,7 @@
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
-<joint name="plato_finger1_ee" type="fixed">
+<joint name="plato_finger1_ee_joint" type="fixed">
 <origin xyz="0.063094028360469539551 -0.0092379839030397731259 -0.0025000000000000230371" rpy="1.5707963267948958919 1.0178915901030053653e-17 0.016022148110467458043" />
 <parent link="plato_finger1_link2" />
 <child link="plato_finger1_ee" />
@@ -679,7 +695,7 @@
 <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
 </inertial>
 </link>
-<joint name="plato_finger2_ee" type="fixed">
+<joint name="plato_finger2_ee_joint" type="fixed">
 <origin xyz="0.063094028360469511796 -0.009237983903039766187 -0.0024999999999999814038" rpy="1.5707963267948970021 -1.017893310654182657e-17 0.016022148110467461513" />
 <parent link="plato_finger2_link2" />
 <child link="plato_finger2_ee" />
