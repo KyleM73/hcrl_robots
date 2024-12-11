@@ -1,0 +1,276 @@
+<?xml version="1.0" ?>
+<robot name="husky">
+  <link name="root">
+    <inertial>
+      <mass value="1.0e-9"/>
+      <inertia ixx="1.0e-9" ixy="0.0" ixz="0.0" iyy="1.0e-9" iyz="0.0" izz="1.0e-9"/>
+    </inertial>
+  </link>
+  <link name="link_x">
+    <inertial>
+      <mass value="1.0e-9"/>
+      <inertia ixx="1.0e-9" ixy="0.0" ixz="0.0" iyy="1.0e-9" iyz="0.0" izz="1.0e-9"/>
+    </inertial>
+  </link>
+  <joint name="joint_x" type="prismatic">
+    <parent link="root"/>
+    <child link="link_x"/>
+    <origin xyz="0 0 0"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+  <link name="link_y">
+    <inertial>
+      <mass value="1.0e-9"/>
+      <inertia ixx="1.0e-9" ixy="0.0" ixz="0.0" iyy="1.0e-9" iyz="0.0" izz="1.0e-9"/>
+    </inertial>
+  </link>
+  <joint name="joint_y" type="prismatic">
+    <parent link="link_x"/>
+    <child link="link_y"/>
+    <origin xyz="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+  <!-- Base link is the center of the robot's bottom plate -->
+  <link name="base">
+    <inertial>
+      <mass value="46.034"/>
+      <origin xyz="-0.00065 -0.085 0.062"/>
+      <inertia ixx="0.6022" ixy="-0.02364" ixz="-0.1197" iyy="1.7386" iyz="-0.001544" izz="2.0296"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/base_link.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0.0 0 0.061875"/>
+      <geometry>
+        <box size="0.9874 0.5709 0.12375"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.175625"/>
+      <geometry>
+        <box size="0.78992 0.5709 0.10375"/>
+      </geometry>
+    </collision>
+    <!--tf to ground: <origin rpy="0 0 0" xyz="0 0 -0.13228"/>-->
+  </link>
+  <joint name="joint_z" type="revolute">
+    <parent link="link_y"/>
+    <child link="base"/>
+    <origin xyz="0 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+  <link name="front_left_wheel_link">
+    <inertial>
+      <mass value="2.637"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <!--<cylinder length="0.1143" radius="0.1651"/>-->
+        <mesh filename="meshes/wheel.dae"/>
+      </geometry>
+    </visual>
+    <!--<collision>
+      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/wheel7200.stl"/>
+      </geometry>
+    </collision>-->
+  </link>
+  <joint name="front_left_wheel" type="continuous">
+    <parent link="base"/>
+    <child link="front_left_wheel_link"/>
+    <origin rpy="0 0 0" xyz="0.256 0.2854 0.03282"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit lower="-1e9" upper="1e9" />
+  </joint>
+  <link name="front_right_wheel_link">
+    <inertial>
+      <mass value="2.637"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <!--<cylinder length="0.1143" radius="0.1651"/>-->
+        <mesh filename="meshes/wheel.dae"/>
+      </geometry>
+    </visual>
+    <!--<collision>
+      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/wheel7200.stl"/>
+      </geometry>
+    </collision>-->
+  </link>
+  <joint name="front_right_wheel" type="continuous">
+    <parent link="base"/>
+    <child link="front_right_wheel_link"/>
+    <origin rpy="0 0 0" xyz="0.256 -0.2854 0.03282"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <limit lower="-1e9" upper="1e9" />
+  </joint>
+  <link name="rear_left_wheel_link">
+    <inertial>
+      <mass value="2.637"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <!--<cylinder length="0.1143" radius="0.1651"/>-->
+        <mesh filename="meshes/wheel.dae"/>
+      </geometry>
+    </visual>
+    <!--<collision>
+      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/wheel7200.stl"/>
+      </geometry>
+    </collision>-->
+  </link>
+  <joint name="rear_left_wheel" type="continuous">
+    <parent link="base"/>
+    <child link="rear_left_wheel_link"/>
+    <origin rpy="0 0 0" xyz="-0.256 0.2854 0.03282"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <!--<mimic joint="front_left_wheel" multiplier="1.0" offset="0.0"/>-->
+    <limit lower="-1e9" upper="1e9" />
+  </joint>
+  <link name="rear_right_wheel_link">
+    <inertial>
+      <mass value="2.637"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.02467" ixy="0" ixz="0" iyy="0.04411" iyz="0" izz="0.02467"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <!--<cylinder length="0.1143" radius="0.1651"/>-->
+        <mesh filename="meshes/wheel.dae"/>
+      </geometry>
+    </visual>
+    <!--<collision>
+      <origin rpy="1.570795 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/wheel7200.stl"/>
+      </geometry>
+    </collision>-->
+  </link>
+  <joint name="rear_right_wheel" type="continuous">
+    <parent link="base"/>
+    <child link="rear_right_wheel_link"/>
+    <origin rpy="0 0 0" xyz="-0.256 -0.2854 0.03282"/>
+    <axis rpy="0 0 0" xyz="0 1 0"/>
+    <!--<mimic joint="front_right_wheel" multiplier="1.0" offset="0.0"/>-->
+    <limit lower="-1e9" upper="1e9" />
+  </joint>
+  <!-- Spawn Husky chassis -->
+  <link name="top_chassis_link">
+    <inertial>
+      <mass value="1e-9"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/top_chassis.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <!-- Attach chassis to the robot -->
+  <joint name="top_chassis_joint" type="fixed">
+    <parent link="base"/>
+    <child link="top_chassis_link"/>
+  </joint>
+  <link name="front_bumper_link">
+    <inertial>
+      <mass value="1e-9"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="meshes/bumper.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <!-- Attach front bumper -->
+  <joint name="front_bumper" type="fixed">
+    <origin rpy="0 0 0" xyz="0.48 0 0.091"/>
+    <parent link="base"/>
+    <child link="front_bumper_link"/>
+  </joint>
+  <link name="rear_bumper_link">
+    <inertial>
+      <mass value="1e-9"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="meshes/bumper.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <!-- Attach rear bumper -->
+  <joint name="rear_bumper" type="fixed">
+    <origin rpy="0 0 3.14159" xyz="-0.48 0 0.091"/>
+    <parent link="base"/>
+    <child link="rear_bumper_link"/>
+  </joint>
+  <!-- Spawn user rails -->
+  <link name="user_rail_link">
+    <inertial>
+      <mass value="1e-9"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9"/>
+    </inertial>
+    <visual>
+      <geometry>
+        <mesh filename="meshes/user_rail.dae"/>
+      </geometry>
+    </visual>
+  </link>
+  <!-- Attach user rails to base link -->
+  <joint name="user_rail" type="fixed">
+    <origin rpy="0 0 0" xyz="0.272 0 0.245"/>
+    <parent link="base"/>
+    <child link="user_rail_link"/>
+  </joint>
+  <!-- Spawn default top plate -->
+  <link name="top_plate_link">
+    <inertial>
+      <mass value="1e-9"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="1e-9" ixy="0" ixz="0" iyy="1e-9" iyz="0" izz="1e-9"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/top_plate.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="meshes/top_plate.stl"/>
+      </geometry>
+    </collision>
+  </link>
+  <!-- Attach default top plate -->
+  <joint name="top_plate_joint" type="fixed">
+    <parent link="base"/>
+    <child link="top_plate_link"/>
+    <origin rpy="0 0 0" xyz="0.0812 0 0.245"/>
+  </joint>
+</robot>
