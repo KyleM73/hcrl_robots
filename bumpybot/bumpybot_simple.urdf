@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<robot name="so2">
+
+  <link name="root">
+    <inertial>
+      <mass value="1.0e-3"/>
+      <inertia ixx="1.0e-8" ixy="0.0" ixz="0.0" iyy="1.0e-8" iyz="0.0" izz="1.0e-8"/>
+    </inertial>
+  </link>
+
+  <link name="link_x">
+    <inertial>
+      <mass value="1.0e-3"/>
+      <inertia ixx="1.0e-8" ixy="0.0" ixz="0.0" iyy="1.0e-8" iyz="0.0" izz="1.0e-8"/>
+    </inertial>
+  </link>
+
+  <joint name="joint_x" type="prismatic">
+    <parent link="root"/>
+    <child link="link_x"/>
+    <origin xyz="0 0 0"/>
+    <axis xyz="1 0 0"/>
+    <limit lower="-150.0" upper="150.0" effort="1000.0" velocity="1.5"/>
+  </joint>
+
+  <link name="link_y">
+    <inertial>
+      <mass value="1.0e-3"/>
+      <inertia ixx="1.0e-8" ixy="0.0" ixz="0.0" iyy="1.0e-8" iyz="0.0" izz="1.0e-8"/>
+    </inertial>
+  </link>
+
+  <joint name="joint_y" type="prismatic">
+    <parent link="link_x"/>
+    <child link="link_y"/>
+    <origin xyz="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-150.0" upper="150.0" effort="1000.0" velocity="1.5"/>
+  </joint>
+
+  <link name="base">
+    <inertial>
+      <mass value="50.0"/>
+      <!--2/5*MR^2-->
+      <inertia ixx="0.645" ixy="0.0" ixz="0.0" iyy="0.645" iyz="0.0" izz="2.25"/>
+    </inertial>
+    <collision>
+      <geometry>
+        <cylinder radius="0.36" length="0.5"/>
+      </geometry>
+    </collision>
+    <!-- <visual>
+      <geometry>
+        <cylinder radius="0.36" length="0.6"/>
+      </geometry>
+    </visual> -->
+    <visual>
+      <origin rpy="0 0 1.5708" xyz="0 0 0"/>
+      <geometry>
+        <!--<cylinder length="0.6318758" radius="0.3048"/>-->
+        <mesh filename="meshes/bumpybot_full.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <joint name="joint_z" type="revolute">
+    <parent link="link_y"/>
+    <child link="base"/>
+    <origin xyz="0 0 0"/>
+    <axis xyz="0 0 1"/>
+    <limit lower="-150.0" upper="150.0" effort="1000.0" velocity="4.0"/>
+  </joint>
+
+</robot>
