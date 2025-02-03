@@ -9,35 +9,12 @@
     </inertial>
   </link>
 
-  <!-- <link name="virtual_link_rotate">
-    <inertial>
-      <mass value="1.0e-9"/>
-      <inertia ixx="1.0e-9" ixy="0.0" ixz="0.0" iyy="1.0e-9" iyz="0.0" izz="1.0e-9"/>
-    </inertial>
-  </link>
-
-  <joint name="virtual_joint_rotate" type="revolute">
-    <axis xyz="0 0 1"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="base"/>
-    <child link="virtual_link_rotate"/>
-    <limit effort="1000.0" lower="-1e9" upper="1e9" velocity="10"/>
-  </joint> -->
-
   <link name="virtual_link_x">
     <inertial>
       <mass value="1.0e-9"/>
       <inertia ixx="1.0e-9" ixy="0.0" ixz="0.0" iyy="1.0e-9" iyz="0.0" izz="1.0e-9"/>
     </inertial>
   </link>
-
-  <!-- <joint name="virtual_joint_x" type="prismatic">
-    <parent link="virtual_link_rotate"/>
-    <child link="virtual_link_x"/>
-    <origin xyz="0 0 0"/>
-    <axis xyz="1 0 0"/>
-    <limit lower="-1e9" upper="1e9" effort="1000.0" velocity="10"/>
-  </joint> -->
 
    <joint name="virtual_joint_x" type="prismatic">
     <parent link="base"/>
@@ -77,6 +54,51 @@
     <limit lower="-1e9" upper="1e9" effort="1000.0" velocity="10"/>
   </joint>
 
+  <link name="virtual_link_pitch">
+    <inertial>
+      <mass value="1e-9"/>
+      <inertia ixx="1e-9" ixy="0.0" ixz="0.0" iyy="1e-9" iyz="0.0" izz="1e-9"/>
+    </inertial>
+  </link>
+
+  <joint name="virtual_joint_pitch" type="revolute">
+    <axis xyz="0 1 0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="virtual_link_z"/>
+    <child link="virtual_link_pitch"/>
+    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="10"/>
+  </joint>
+
+    <link name="virtual_link_yaw">
+    <inertial>
+      <mass value="1e-9"/>
+      <inertia ixx="1e-9" ixy="0.0" ixz="0.0" iyy="1e-9" iyz="0.0" izz="1e-9"/>
+    </inertial>
+  </link>
+
+  <joint name="virtual_joint_yaw" type="revolute">
+    <axis xyz="0 0 1"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="virtual_link_pitch"/>
+    <child link="virtual_link_yaw"/>
+    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="10"/>
+  </joint>
+
+
+  <!-- <link name="virtual_link_roll">
+    <inertial>
+      <mass value="1e-9"/>
+      <inertia ixx="1e-9" ixy="0.0" ixz="0.0" iyy="1e-9" iyz="0.0" izz="1e-9"/>
+    </inertial>
+  </link> -->
+
+  <joint name="virtual_joint_roll" type="revolute">
+    <axis xyz="1 0 0"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="virtual_link_yaw"/>
+    <child link="plato_base"/>
+    <limit effort="1000.0" lower="-1.57" upper="1.57" velocity="10"/>
+  </joint>
 
 <!-- Plato URDF -->
   <link name="plato_ee">
@@ -88,7 +110,7 @@
   </link>
 
   <joint name="plato_ee_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.2 0 -0.07" />
+    <origin rpy="0 0 0" xyz="0.175 0 -0.07" />
     <parent link="plato_base" />
     <child link="plato_ee" />
   </joint>
@@ -119,14 +141,6 @@
         iyz="1.4829516353374399984e-05" izz="0.00077625253551394607452" />
     </inertial>
   </link>
-
-  <joint name="virtual_joint_plato_pitch" type="revolute">
-    <axis xyz="0 1 0"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="virtual_link_z"/>
-    <child link="plato_base"/>
-    <limit effort="1000.0" lower="-1e9" upper="1e9" velocity="10"/>
-  </joint>
 
   <link name="plato_finger0_mcp">
     <visual>
