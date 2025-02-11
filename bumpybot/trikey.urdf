@@ -1,0 +1,1886 @@
+<?xml version="1.0" ?>
+<robot name="trikey">
+  <link name="base_link"/>
+
+  <joint name="body_joint" type="fixed">
+    <origin rpy="0 0 -0.523" xyz="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="body_link"/>
+  </joint>
+
+  <link name="body_link">
+    <visual>
+      <origin rpy="-1.11735e-06 1.93532e-06 2.69365e-06" xyz="0.007652 0.00490494 0.000231732"/>
+      <geometry>
+        <mesh filename="package://meshes/motors_base.stl"/>
+      </geometry>
+    </visual>
+    <!-- <collision>
+      <origin rpy="-1.11735e-06 1.93532e-06 2.69365e-06" xyz="0.007652 0.00490494 0.000231732"/>
+      <geometry>
+        <mesh filename="package://meshes/motors_base.stl"/>
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.00765321 0.00490866 -0.0357164"/>
+      <mass value="18.8276"/>
+      <inertia ixx="0.303414" ixy="1.3598e-09" ixz="-5.01901e-07" iyy="0.303414" iyz="-2.9214e-07" izz="0.562153"/>
+    </inertial>
+  </link>
+
+  <link name="wheel0">
+    <visual>
+      <origin rpy="-1.5708 1.4944e-22 -1.48983e-28" xyz="0.0157175 -0.000676884 -0.00283407"/>
+      <geometry>
+        <mesh filename="package://meshes/wheel.stl"/>
+      </geometry>
+    </visual>
+    <!-- <collision>
+      <origin rpy="-1.5708 1.4944e-22 -1.48983e-28" xyz="0.0157175 -0.000676884 -0.00283407"/>
+      <geometry>
+        <mesh filename="package://meshes/wheel.stl"/>
+      </geometry>
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-3.2877e-05 -5.91764e-05 -0.0112478"/>
+      <mass value="2.36069"/>
+      <inertia ixx="0.00466517" ixy="9.17346e-07" ixz="2.34275e-06" iyy="0.00466772" iyz="-4.20658e-06" izz="0.00786801"/>
+    </inertial>
+  </link>
+
+  <link name="roller8x750">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="2.77556e-17 0 -0.0076581"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="2.77556e-17 0 -0.0076581"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_0" type="continuous">
+    <origin rpy="-1.5708 1.57079 -0.523599" xyz="0.0835653 -0.0394107 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+
+  <link name="roller8x750_2">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="2.77556e-17 0 -0.00924552"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="2.77556e-17 0 -0.00924552"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_1" type="continuous">
+    <origin rpy="-0.698132 1.5708 0" xyz="0.0665785 -0.0643294 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_3">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_2" type="continuous">
+    <origin rpy="-0.349066 1.5708 0" xyz="0.0405614 -0.083221 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_3"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_4">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_3" type="continuous">
+    <origin rpy="1.5708 1.5708 1.5708" xyz="0.009652 -0.092075 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_4"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_5">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_4" type="continuous">
+    <origin rpy="1.5708 1.57079 1.22173" xyz="-0.0224216 -0.0898234 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_5"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_6">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_5" type="continuous">
+    <origin rpy="1.5708 1.57079 0.872665" xyz="-0.0517908 -0.0767377 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_6"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_7">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_6" type="continuous">
+    <origin rpy="1.5708 1.57079 0.523599" xyz="-0.0749133 -0.0543964 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_7"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_8">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_7" type="continuous">
+    <origin rpy="1.5708 1.57079 0.174533" xyz="-0.0890001 -0.025494 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_8"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_9">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_8" type="continuous">
+    <origin rpy="1.5708 1.57079 -0.174533" xyz="-0.0923522 0.00648329 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_9"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_10">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_9" type="continuous">
+    <origin rpy="1.5708 1.57079 -0.523599" xyz="-0.0845653 0.0376786 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_10"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_11">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_10" type="continuous">
+    <origin rpy="2.44346 1.5708 0" xyz="-0.0665785 0.0643294 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_11"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_12">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_11" type="continuous">
+    <origin rpy="2.79253 1.5708 0" xyz="-0.0405614 0.083221 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_12"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_13">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_12" type="continuous">
+    <origin rpy="-1.5708 1.5708 1.5708" xyz="-0.009652 0.092075 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_13"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_14">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_13" type="continuous">
+    <origin rpy="-1.5708 1.57079 1.22173" xyz="0.0224216 0.0898234 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_14"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_15">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_14" type="continuous">
+    <origin rpy="-1.5708 1.57079 0.872665" xyz="0.0517908 0.0767377 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_15"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_16">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_15" type="continuous">
+    <origin rpy="-1.5708 1.57079 0.523599" xyz="0.0749133 0.0543964 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_16"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_17">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_16" type="continuous">
+    <origin rpy="-1.5708 1.57079 0.174533" xyz="0.0890001 0.025494 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_17"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_18">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w0_17" type="continuous">
+    <origin rpy="1.5708 1.57079 -0.174533" xyz="0.0890001 -0.025494 0.0065875"/>
+    <parent link="wheel0"/>
+    <child link="roller8x750_18"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <joint name="wheel1_joint" type="continuous">
+    <origin rpy="1.5708 1.50474e-12 2.69365e-06" xyz="0.0076339 -0.242491 -0.130854"/>
+    <parent link="body_link"/>
+    <child link="wheel1"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="wheel1">
+    <visual>
+      <origin rpy="-1.5708 -7.59903e-17 5.39519e-23" xyz="0.0157175 -0.000676884 -0.0110091"/>
+      <geometry>
+        <mesh filename="package://meshes/wheel.stl"/>
+      </geometry>
+
+    </visual>
+    <!-- <collision>
+      <origin rpy="-1.5708 -7.59903e-17 5.39519e-23" xyz="0.0157175 -0.000676884 -0.0110091"/>
+      <geometry>
+        <mesh filename="package://meshes/wheel.stl"/>
+      </geometry>
+
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-3.2877e-05 -5.91764e-05 -0.0194228"/>
+      <mass value="2.36069"/>
+      <inertia ixx="0.00466517" ixy="9.17346e-07" ixz="2.34275e-06" iyy="0.00466772" iyz="-4.20658e-06" izz="0.00786801"/>
+    </inertial>
+  </link>
+  
+  <link name="roller8x750_19">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_0" type="continuous">
+    <origin rpy="-1.5708 1.77409e-06 -0.523599" xyz="-0.0749133 0.0543964 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_19"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_20">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_1" type="continuous">
+    <origin rpy="0.698132 -1.5708 0" xyz="-0.0665785 0.0643294 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_20"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_21">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_2" type="continuous">
+    <origin rpy="0.349066 -1.5708 0" xyz="-0.0405614 0.083221 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_21"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_22">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_3" type="continuous">
+    <origin rpy="-1.5708 -1.5708 1.5708" xyz="-0.009652 0.092075 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_22"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_23">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_4" type="continuous">
+    <origin rpy="-1.5708 -1.57079 1.22173" xyz="0.0224216 0.0898234 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_23"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_24">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_5" type="continuous">
+    <origin rpy="-1.5708 -1.57079 0.872665" xyz="0.0517908 0.0767377 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_24"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_25">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_6" type="continuous">
+    <origin rpy="-1.5708 2.89145e-06 0.523599" xyz="0.0749133 0.0543964 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_25"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_26">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_7" type="continuous">
+    <origin rpy="-1.5708 2.84675e-06 0.174533" xyz="0.0890001 0.025494 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_26"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_27">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_8" type="continuous">
+    <origin rpy="-1.5708 2.4587e-06 -0.174533" xyz="0.0923522 -0.00648329 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_27"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_28">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_9" type="continuous">
+    <origin rpy="-1.5708 1.77409e-06 -0.523599" xyz="0.0845653 -0.0376786 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_28"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_29">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_10" type="continuous">
+    <origin rpy="-2.44346 -1.5708 0" xyz="0.0665785 -0.0643294 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_29"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_30">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_11" type="continuous">
+    <origin rpy="-2.79253 -1.5708 0" xyz="0.0405614 -0.083221 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_30"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_31">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_12" type="continuous">
+    <origin rpy="1.5708 -1.5708 1.5708" xyz="0.009652 -0.092075 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_31"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_32">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_13" type="continuous">
+    <origin rpy="1.5708 -1.57079 1.22173" xyz="-0.0224216 -0.0898234 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_32"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_33">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_14" type="continuous">
+    <origin rpy="1.5708 -1.57079 0.872665" xyz="-0.0517908 -0.0767377 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_33"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_34">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_15" type="continuous">
+    <origin rpy="1.5708 2.89145e-06 0.523599" xyz="-0.0749133 -0.0543964 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_34"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_35">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_16" type="continuous">
+    <origin rpy="1.5708 2.84675e-06 0.174533" xyz="-0.0890001 -0.025494 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_35"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_36">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w1_17" type="continuous">
+    <origin rpy="1.5708 2.4587e-06 -0.174533" xyz="-0.0923522 0.00648329 -0.0015875"/>
+    <parent link="wheel1"/>
+    <child link="roller8x750_36"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <joint name="wheel0_joint" type="continuous">
+    <origin rpy="-1.5708 -1.50485e-12 1.0472" xyz="-0.212654 0.132125 -0.130854"/>
+    <parent link="body_link"/>
+    <child link="wheel0"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="wheel2">
+    <visual>
+      <origin rpy="-1.5708 1.21101e-16 3.64923e-22" xyz="0.0157175 -0.000676884 -0.0110091"/>
+      <geometry>
+        <mesh filename="package://meshes/wheel.stl"/>
+      </geometry>
+
+    </visual>
+    <!-- <collision>
+      <origin rpy="-1.5708 1.21101e-16 3.64923e-22" xyz="0.0157175 -0.000676884 -0.0110091"/>
+      <geometry>
+        <mesh filename="package://meshes/wheel.stl"/>
+      </geometry>
+
+    </collision> -->
+    <inertial>
+      <origin rpy="0 0 0" xyz="-3.2877e-05 -5.91764e-05 -0.0194228"/>
+      <mass value="2.36069"/>
+      <inertia ixx="0.00466517" ixy="9.17346e-07" ixz="2.34275e-06" iyy="0.00466772" iyz="-4.20658e-06" izz="0.00786801"/>
+    </inertial>
+  </link>
+  
+  <link name="roller8x750_37">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_0" type="continuous">
+    <origin rpy="-1.5708 -3.04078e-06 2.96706" xyz="0.0890001 -0.025494 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_37"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_38">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_1" type="continuous">
+    <origin rpy="-1.5708 1.48959e-08 -2.96706" xyz="0.0923522 0.00648329 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_38"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_39">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_2" type="continuous">
+    <origin rpy="-1.5708 -7.70262e-17 -2.61799" xyz="0.0845653 0.0376786 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_39"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_40">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_3" type="continuous">
+    <origin rpy="2.44346 -1.5708 0" xyz="0.0665785 0.0643294 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_40"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_41">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_4" type="continuous">
+    <origin rpy="2.79253 -1.5708 0" xyz="0.0405614 0.083221 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_41"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_42">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_5" type="continuous">
+    <origin rpy="-3.14159 -1.5708 0" xyz="0.009652 0.092075 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_42"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_43">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_6" type="continuous">
+    <origin rpy="-2.79253 -1.5708 0" xyz="-0.0224216 0.0898234 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_43"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_44">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_7" type="continuous">
+    <origin rpy="-2.44346 -1.5708 0" xyz="-0.0517908 0.0767377 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_44"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_45">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_8" type="continuous">
+    <origin rpy="1.5708 -9.29494e-17 2.61799" xyz="-0.0749133 0.0543964 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_45"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_46">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_9" type="continuous">
+    <origin rpy="1.5708 -1.2854e-17 2.96706" xyz="-0.0890001 0.025494 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_46"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_47">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_10" type="continuous">
+    <origin rpy="1.5708 -5.86296e-17 -2.96706" xyz="-0.0923522 -0.00648329 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_47"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_48">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_11" type="continuous">
+    <origin rpy="1.5708 -7.70262e-17 -2.61799" xyz="-0.0845653 -0.0376786 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_48"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_49">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_12" type="continuous">
+    <origin rpy="-0.698132 -1.5708 0" xyz="-0.0665785 -0.0643294 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_49"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_50">
+    <visual>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="1.5708 1.5708 0" xyz="8.72708e-09 2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_13" type="continuous">
+    <origin rpy="-0.349066 -1.5708 0" xyz="-0.0405614 -0.083221 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_50"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_51">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_14" type="continuous">
+    <origin rpy="7.41518e-14 -1.5708 0" xyz="-0.009652 -0.092075 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_51"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_52">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_15" type="continuous">
+    <origin rpy="0.349066 -1.5708 0" xyz="0.0224216 -0.0898234 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_52"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_53">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_16" type="continuous">
+    <origin rpy="0.698132 -1.5708 0" xyz="0.0517908 -0.0767377 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_53"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="roller8x750_54">
+    <visual>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </visual>
+    <collision>
+      <origin rpy="-1.5708 -1.5708 0" xyz="-8.72708e-09 -2.00071e-09 -0.00924558"/>
+      <geometry>
+        <mesh filename="package://meshes/roller8x750.stl"/>
+      </geometry>
+
+    </collision>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.005"/>
+      <inertia ixx="0.002" ixy="0" ixz="0" iyy="0.003" iyz="0" izz="0.003"/>
+    </inertial>
+  </link>
+  
+  <joint name="roller_w2_17" type="continuous">
+    <origin rpy="-1.5708 -9.29511e-17 2.61799" xyz="0.0749133 -0.0543964 -0.0015875"/>
+    <parent link="wheel2"/>
+    <child link="roller8x750_54"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="100" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <joint name="wheel2_joint" type="continuous">
+    <origin rpy="-1.5708 -3.25141e-07 -1.04719" xyz="0.227979 0.132092 -0.130855"/>
+    <parent link="body_link"/>
+    <child link="wheel2"/>
+    <axis xyz="0 0 1"/>
+    <limit effort="30" velocity="20"/>
+    <joint_properties friction="0.0"/>
+  </joint>
+  
+  <link name="lidar_mount">
+    <visual>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0.0 0.0 0.0" xyz="0.0 0.0 0.0"/>
+      <mass value="0.19"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+  
+  <joint name="lidar_mount_joint" type="fixed">
+    <origin rpy="0.0 0.0 0.0" xyz="0.23 0.0 0.345"/>
+    <parent link="base_link"/>
+    <child link="lidar_mount"/>
+  </joint>
+  
+  <!-- Lidar Link -->
+  <link name="lidar_link">
+    <visual>
+      <origin rpy="1.5705 0 4.71229" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://meshes/rplidar.dae" scale="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <mass value="1e-5"/>
+      <origin rpy="1.5707 0 1.5707" xyz="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+  
+  <!-- Azure Kinect Camera Link (Top Camera) -->
+  <link name="kinect_1_link">
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://meshes/Azure_Kinect.stl"/>
+      </geometry>
+    </visual>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value=".44"/>
+      <inertia ixx="10.173985" ixy="0.212137" ixz="-0.09591" iyy="5.191632" iyz="0.505713" izz="5.853716"/>
+    </inertial>
+  </link>
+  
+  <link name="camera_body">
+    <visual>
+      <origin xyz="0. 0. 0."/>
+      <geometry>
+        <box size="0.0994 0.0996 0.023"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <link name="camera_base">
+    <visual>
+      <origin xyz="-0.013 0. 0."/>
+      <geometry>
+        <box size="0.026 0.103 0.039"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <link name="camera_visor">
+    <visual>
+      <origin xyz="-0.0128 0. 0."/>
+      <geometry>
+        <box size="0.026 0.101 0.037"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <joint name="base_link_to_camera_base" type="fixed">
+    <origin rpy="-1.57 0.0 0.0" xyz="0.289682 -0.01239 0.28607"/>
+    <parent link="base_link"/>
+    <child link="camera_base"/>
+  </joint>
+  
+  <joint name="camera_base_to_body" type="fixed">
+    <parent link="camera_base"/>
+    <child link="camera_body"/>
+    <origin rpy="0. 0. 0." xyz="-0.0757 0. 0.008"/>
+  </joint>
+  
+  <joint name="camera_base_to_visor" type="fixed">
+    <parent link="camera_base"/>
+    <child link="camera_visor"/>
+    <origin rpy="0. 0. 0." xyz="0. 0. 0."/>
+  </joint>
+  
+  <!-- Azure Kinect Camera Lense Link (Top Camera) -->
+  <link name="kinect_1_lense_link">
+    <visual>
+      <origin rpy="0 1.57 0" xyz="0 0 0"/>
+      <geometry>
+        <cylinder length="0.001" radius="0.01"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <!-- Kinect Camera Joints -->
+  <joint name="kinect_1_joint" type="fixed">
+    <origin rpy="0 1.57 0" xyz="0.289682 -0.01239 0.28607"/>
+    <parent link="base_link"/>
+    <child link="kinect_1_link"/>
+  </joint>
+  
+  <joint name="kinect_1_lense_joint" type="fixed">
+    <origin rpy="3.14 -1.57 0" xyz="-0.03 0 0.01"/>
+    <parent link="kinect_1_link"/>
+    <child link="kinect_1_lense_link"/>
+  </joint>
+  
+  <!-- Lidar Joint -->
+  <joint name="rplidar_joint" type="fixed">
+    <axis xyz="0 1 0"/>
+    <origin rpy="0 0 3.14" xyz="0 0 0"/>
+    <parent link="lidar_mount"/>
+    <child link="lidar_link"/>
+  </joint>
+  
+</robot>
