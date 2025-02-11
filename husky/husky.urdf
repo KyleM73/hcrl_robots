@@ -35,16 +35,17 @@
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
+      <!-- <origin rpy="1.570795 0 0" xyz="0 0 0"/> -->
       <geometry>
-        <!--<cylinder length="0.1143" radius="0.1651"/>-->
+        <!-- <cylinder length="0.1143" radius="0.1651"/> -->
         <mesh filename="meshes/wheel.dae"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="1.570795 0 0" xyz="0 0 0"/>
       <geometry>
-        <!--<cylinder length="0.1143" radius="0.1651"/>-->
-        <mesh filename="meshes/wheel7200.stl"/>
+        <cylinder length="0.1143" radius="0.1651"/>
+        <!-- <mesh filename="meshes/wheel7200.stl"/> -->
       </geometry>
     </collision>
   </link>
@@ -63,16 +64,17 @@
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
+      <!-- <origin rpy="1.570795 0 0" xyz="0 0 0"/> -->
       <geometry>
-        <!--<cylinder length="0.1143" radius="0.1651"/>-->
+        <!-- <cylinder length="0.1143" radius="0.1651"/> -->
         <mesh filename="meshes/wheel.dae"/>
       </geometry>
     </visual>
     <collision>
       <origin rpy="1.570795 0 0" xyz="0 0 0"/>
       <geometry>
-        <!--<cylinder length="0.1143" radius="0.1651"/>-->
-        <mesh filename="meshes/wheel7200.stl"/>
+        <cylinder length="0.1143" radius="0.1651"/>
+        <!-- <mesh filename="meshes/wheel7200.stl"/> -->
       </geometry>
     </collision>
   </link>
@@ -99,8 +101,8 @@
     <collision>
       <origin rpy="1.570795 0 0" xyz="0 0 0"/>
       <geometry>
-        <!--<cylinder length="0.1143" radius="0.1651"/>-->
-        <mesh filename="meshes/wheel7200.stl"/>
+        <cylinder length="0.1143" radius="0.1651"/>
+        <!-- <mesh filename="meshes/wheel7200.stl"/> -->
       </geometry>
     </collision>
   </link>
@@ -109,7 +111,7 @@
     <child link="rear_left_wheel_link"/>
     <origin rpy="0 0 0" xyz="-0.256 0.2854 0.03282"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
-    <!--<mimic joint="front_left_wheel" multiplier="1.0" offset="0.0"/>-->
+    <mimic joint="front_left_wheel" multiplier="1.0" offset="0.0"/>
     <limit lower="-1e9" upper="1e9" />
   </joint>
   <link name="rear_right_wheel_link">
@@ -128,8 +130,8 @@
     <collision>
       <origin rpy="1.570795 0 0" xyz="0 0 0"/>
       <geometry>
-        <!--<cylinder length="0.1143" radius="0.1651"/>-->
-        <mesh filename="meshes/wheel7200.stl"/>
+        <cylinder length="0.1143" radius="0.1651"/>
+        <!-- <mesh filename="meshes/wheel7200.stl"/> -->
       </geometry>
     </collision>
   </link>
@@ -138,7 +140,7 @@
     <child link="rear_right_wheel_link"/>
     <origin rpy="0 0 0" xyz="-0.256 -0.2854 0.03282"/>
     <axis rpy="0 0 0" xyz="0 1 0"/>
-    <!--<mimic joint="front_right_wheel" multiplier="1.0" offset="0.0"/>-->
+    <mimic joint="front_right_wheel" multiplier="1.0" offset="0.0"/>
     <limit lower="-1e9" upper="1e9" />
   </joint>
   <!-- Spawn Husky chassis -->
