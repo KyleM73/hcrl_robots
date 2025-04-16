@@ -480,7 +480,7 @@
   <link name="plato_finger0_link2">
     <inertial>
       <origin xyz="0.0332857 0.000814515 -0.00249951" rpy="0 0 0"/>
-      <mass value="0.0476864"/>
+      <mass value="0.0470234"/>
       <inertia ixx="2.8964e-06" ixy="-2.54234e-07" ixz="7.11065e-11" iyy="1.23792e-05" iyz="1.44829e-11" izz="1.15913e-05"/>
     </inertial>
     <!-- Part plato_finger0_link2 -->
@@ -499,6 +499,14 @@
         <mesh filename="package://meshes/plato/plato_finger0_link2.stl"/>
       </geometry>
     </collision>
+  </link>
+  <!-- Link plato_finger0_linknail -->
+  <link name="plato_finger0_linknail">
+    <inertial>
+      <origin xyz="0.0332857 0.000814515 -0.00249951" rpy="0 0 0"/>
+      <mass value="0.000663"/>
+      <inertia ixx="2.8964e-06" ixy="-2.54234e-07" ixz="7.11065e-11" iyy="1.23792e-05" iyz="1.44829e-11" izz="1.15913e-05"/>
+    </inertial>
     <!-- Part plato_finger0_nail -->
     <visual>
       <origin xyz="-0.00638726 0.000251139 -0.00249714" rpy="0.262987 1.57063 1.83378"/>
@@ -516,6 +524,11 @@
       </geometry>
     </collision>
   </link>
+  <joint name="plato_finger0_jointnail" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="plato_finger0_link2" />
+    <child link="plato_finger0_linknail" />
+  </joint>
   <!-- Joint from plato_finger0_link1 to plato_finger0_link2 -->
   <joint name="plato_finger0_joint2" type="revolute">
     <origin xyz="0.06 0 -0.005" rpy="3.14159 -3.41605e-23 -4.23275e-16"/>
@@ -576,7 +589,32 @@
   <link name="plato_finger1_link2">
     <inertial>
       <origin xyz="0.0332859 -0.000814594 -0.00249929" rpy="0 0 0"/>
-      <mass value="0.0476874"/>
+      <mass value="0.0470234"/>
+      <inertia ixx="2.89638e-06" ixy="2.54309e-07" ixz="-1.41444e-10" iyy="1.23797e-05" iyz="2.06223e-11" izz="1.15917e-05"/>
+    </inertial>
+    <!-- Part plato_finger1_link2 -->
+    <visual>
+      <origin xyz="0.0220351 -0.00892887 -0.00587761" rpy="1.5708 3.22709e-31 1.05662e-23"/>
+      <geometry>
+        <mesh filename="package://meshes/plato/plato_finger1_link2.stl"/>
+      </geometry>
+      <material name="plato_finger1_link2_material">
+        <color rgba="0.372549 0.654902 0.239216 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0220351 -0.00892887 -0.00587761" rpy="1.5708 3.22709e-31 1.05662e-23"/>
+      <geometry>
+        <mesh filename="package://meshes/plato/plato_finger1_link2.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+    <!-- Link plato_finger1_linknail -->
+  <link name="plato_finger1_linknail">
+    <inertial>
+      <origin xyz="0.0332859 -0.000814594 -0.00249929" rpy="0 0 0"/>
+      <mass value="0.000663"/>
       <inertia ixx="2.89638e-06" ixy="2.54309e-07" ixz="-1.41444e-10" iyy="1.23797e-05" iyz="2.06223e-11" izz="1.15917e-05"/>
     </inertial>
     <!-- Part plato_finger1_nail -->
@@ -595,23 +633,14 @@
         <mesh filename="package://meshes/plato/plato_finger1_nail.stl"/>
       </geometry>
     </collision>
-    <!-- Part plato_finger1_link2 -->
-    <visual>
-      <origin xyz="0.0220351 -0.00892887 -0.00587761" rpy="1.5708 3.22709e-31 1.05662e-23"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/plato_finger1_link2.stl"/>
-      </geometry>
-      <material name="plato_finger1_link2_material">
-        <color rgba="0.372549 0.654902 0.239216 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.0220351 -0.00892887 -0.00587761" rpy="1.5708 3.22709e-31 1.05662e-23"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/plato_finger1_link2.stl"/>
-      </geometry>
-    </collision>
   </link>
+  
+  <joint name="plato_finger1_jointnail" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="plato_finger1_link2" />
+    <child link="plato_finger1_linknail" />
+  </joint>
+
   <!-- Joint from plato_finger1_link1 to plato_finger1_link2 -->
   <joint name="plato_finger1_joint2" type="revolute">
     <origin xyz="0.06 -3.46945e-18 -0.005" rpy="-3.14159 -1.79742e-27 4.44092e-16"/>
@@ -656,7 +685,32 @@
   <link name="plato_finger2_link2">
     <inertial>
       <origin xyz="0.0332857 -0.000814515 -0.00250049" rpy="0 0 0"/>
-      <mass value="0.0476864"/>
+      <mass value="0.0470234"/>
+      <inertia ixx="2.8964e-06" ixy="2.54234e-07" ixz="-7.11065e-11" iyy="1.23792e-05" iyz="1.44829e-11" izz="1.15913e-05"/>
+    </inertial>
+    <!-- Part plato_finger2_link2 -->
+    <visual>
+      <origin xyz="0.0220351 -0.00892887 0.00087761" rpy="1.5708 -3.23118e-31 4.93038e-32"/>
+      <geometry>
+        <mesh filename="package://meshes/plato/plato_finger2_link2.stl"/>
+      </geometry>
+      <material name="plato_finger2_link2_material">
+        <color rgba="0.372549 0.654902 0.239216 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.0220351 -0.00892887 0.00087761" rpy="1.5708 -3.23118e-31 4.93038e-32"/>
+      <geometry>
+        <mesh filename="package://meshes/plato/plato_finger2_link2.stl"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Link plato_finger2_linknail -->
+  <link name="plato_finger2_linknail">
+    <inertial>
+      <origin xyz="0.0332857 -0.000814515 -0.00250049" rpy="0 0 0"/>
+      <mass value="0.000663"/>
       <inertia ixx="2.8964e-06" ixy="2.54234e-07" ixz="-7.11065e-11" iyy="1.23792e-05" iyz="1.44829e-11" izz="1.15913e-05"/>
     </inertial>
     <!-- Part plato_finger2_nail -->
@@ -675,23 +729,14 @@
         <mesh filename="package://meshes/plato/plato_finger2_nail.stl"/>
       </geometry>
     </collision>
-    <!-- Part plato_finger2_link2 -->
-    <visual>
-      <origin xyz="0.0220351 -0.00892887 0.00087761" rpy="1.5708 -3.23118e-31 4.93038e-32"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/plato_finger2_link2.stl"/>
-      </geometry>
-      <material name="plato_finger2_link2_material">
-        <color rgba="0.372549 0.654902 0.239216 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.0220351 -0.00892887 0.00087761" rpy="1.5708 -3.23118e-31 4.93038e-32"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/plato_finger2_link2.stl"/>
-      </geometry>
-    </collision>
   </link>
+
+  <joint name="plato_finger2_jointnail" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0" />
+    <parent link="plato_finger2_link2" />
+    <child link="plato_finger2_linknail" />
+  </joint>
+
   <!-- Joint from plato_finger2_link1 to plato_finger2_link2 -->
   <joint name="plato_finger2_joint2" type="revolute">
     <origin xyz="0.06 -3.46945e-18 1.52656e-16" rpy="-2.77556e-17 3.66583e-27 -4.47125e-16"/>
