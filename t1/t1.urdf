@@ -2,19 +2,6 @@
 <!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
      Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
-<!-- Copyright [2024] [Booster Robotics Technology Co., Ltd ("Booster Robotics")]
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License. -->
 <robot
   name="T1">
   <link
@@ -49,12 +36,10 @@ limitations under the License. -->
     </visual>
     <collision>
       <origin
-        xyz="0.05 0 0.1"
+        xyz="0.06 0 0.12"
         rpy="0 0 0" />
       <geometry>
-        <!-- <mesh
-          filename="meshes/Trunk.STL" /> -->
-          <cylinder radius="0.1" length="0.2"/>
+        <box size="0.15 0.2 0.3" />
       </geometry>
     </collision>
   </link>
@@ -88,15 +73,6 @@ limitations under the License. -->
           rgba="0.4 0.4 0.4 0.3" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/H1.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_h1"
@@ -111,10 +87,10 @@ limitations under the License. -->
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-1.0122909661567112"
-      upper="1.0122909661567112"
-      effort="100"
-      velocity="50" />
+      lower="-1.57"
+      upper="1.57"
+      effort="7"
+      velocity="12.56" />
   </joint>
   <link
     name="h2">
@@ -146,15 +122,14 @@ limitations under the License. -->
           rgba="0.4 0.4 0.4 0.3" />
       </material>
     </visual>
-    <!-- <collision>
+    <collision>
       <origin
-        xyz="0 0 0.02"
+        xyz="0.01 0 0.11"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="meshes/H2.STL" />
+        <sphere radius="0.08" />
       </geometry>
-    </collision> -->
+    </collision>
   </link>
   <joint
     name="joint_h2"
@@ -169,10 +144,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-0.3141592653589793"
-      upper="0.8203047484373349"
-      effort="100"
-      velocity="50" />
+      lower="-0.35"
+      upper="1.22"
+      effort="7"
+      velocity="12.56" />
   </joint>
   <link
     name="al1">
@@ -204,15 +179,6 @@ limitations under the License. -->
           rgba="0.76 0.76 0.76 0.2" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/AL1.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_al1"
@@ -227,10 +193,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-3.2812189937493397"
-      upper="1.186823891356144"
-      effort="100"
-      velocity="50" />
+      lower="-3.31"
+      upper="1.22"
+      effort="18"
+      velocity="18.84" />
   </joint>
   <link
     name="al2">
@@ -262,22 +228,13 @@ limitations under the License. -->
           rgba="0.4 0.4 0.4 0.3" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/AL2.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_al2"
     type="revolute">
     <origin
       xyz="0 0.047 0"
-      rpy="-1.45 0 0" />
+      rpy="0 0 0" />
     <parent
       link="al1" />
     <child
@@ -285,10 +242,10 @@ limitations under the License. -->
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-1.6406094968746698"
-      upper="1.53588974175501"
-      effort="100"
-      velocity="50" />
+      lower="-1.74"
+      upper="1.57"
+      effort="18"
+      velocity="18.84" />
   </joint>
   <link
     name="al3">
@@ -325,9 +282,7 @@ limitations under the License. -->
         xyz="0 0.05 0"
         rpy="1.5708 0 0" />
       <geometry>
-        <!-- <mesh
-          filename="meshes/AL3.STL" /> -->
-          <cylinder radius="0.025" length="0.1" />
+        <cylinder radius="0.03" length="0.15" />
       </geometry>
     </collision>
   </link>
@@ -344,10 +299,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-2.0943951023931953"
-      upper="0.03490658503988659"
-      effort="100"
-      velocity="50" />
+      lower="-2.27"
+      upper="2.27"
+      effort="18"
+      velocity="18.84" />
   </joint>
   <link
     name="al4">
@@ -381,12 +336,10 @@ limitations under the License. -->
     </visual>
     <collision>
       <origin
-        xyz="0 0.12 0"
+        xyz="0 0.13 0"
         rpy="1.5708 0 0" />
       <geometry>
-        <!-- <mesh
-          filename="meshes/left_hand_link.STL" /> -->
-          <cylinder radius="0.025" length="0.24" />
+        <cylinder radius="0.03" length="0.175" />
       </geometry>
     </collision>
   </link>
@@ -403,10 +356,10 @@ limitations under the License. -->
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-2.234021442552742"
-      upper="2.234021442552742"
-      effort="100"
-      velocity="50" />
+      lower="-2.44"
+      upper="0"
+      effort="18"
+      velocity="18.84" />
   </joint>
   <link
     name="ar1">
@@ -438,15 +391,6 @@ limitations under the License. -->
           rgba="0.76 0.76 0.76 0.2" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/AR1.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_ar1"
@@ -461,10 +405,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-3.2812189937493397"
-      upper="1.186823891356144"
-      effort="100"
-      velocity="50" />
+      lower="-3.31"
+      upper="1.22"
+      effort="18"
+      velocity="18.84" />
   </joint>
   <link
     name="ar2">
@@ -496,22 +440,13 @@ limitations under the License. -->
           rgba="0.4 0.4 0.4 0.3" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/AR2.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_ar2"
     type="revolute">
     <origin
       xyz="0 -0.047 0"
-      rpy="1.45 0 0" />
+      rpy="0 0 0" />
     <parent
       link="ar1" />
     <child
@@ -519,10 +454,10 @@ limitations under the License. -->
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-1.53588974175501"
-      upper="1.6406094968746698"
-      effort="100"
-      velocity="50" />
+      lower="-1.57"
+      upper="1.74"
+      effort="18"
+      velocity="18.84" />
   </joint>
   <link
     name="ar3">
@@ -559,9 +494,7 @@ limitations under the License. -->
         xyz="0 -0.05 0"
         rpy="1.5708 0 0" />
       <geometry>
-        <!-- <mesh
-          filename="meshes/AL3.STL" /> -->
-          <cylinder radius="0.025" length="0.1" />
+        <cylinder radius="0.03" length="0.15" />
       </geometry>
     </collision>
   </link>
@@ -578,10 +511,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-0.03490658503988659"
-      upper="2.0943951023931953"
-      effort="100"
-      velocity="50" />
+      lower="-2.27"
+      upper="2.27"
+      effort="18"
+      velocity="18.84" />
   </joint>
   <link
     name="ar4">
@@ -615,12 +548,10 @@ limitations under the License. -->
     </visual>
     <collision>
       <origin
-        xyz="0 -0.12 0"
+        xyz="0 -0.13 0"
         rpy="1.5708 0 0" />
       <geometry>
-        <!-- <mesh
-          filename="meshes/right_hand_link.STL" /> -->
-          <cylinder radius="0.025" length="0.24" />
+        <cylinder radius="0.03" length="0.175" />
       </geometry>
     </collision>
   </link>
@@ -637,10 +568,10 @@ limitations under the License. -->
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-2.234021442552742"
-      upper="2.234021442552742"
-      effort="100"
-      velocity="50" />
+      lower="0"
+      upper="2.44"
+      effort="18"
+      velocity="18.84" />
   </joint>
   <link
     name="waist">
@@ -672,15 +603,6 @@ limitations under the License. -->
           rgba="0.4 0.4 0.4 0.3" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/Waist.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_waist"
@@ -695,10 +617,10 @@ limitations under the License. -->
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-1.0122909661567112"
-      upper="1.0122909661567112"
-      effort="100"
-      velocity="50" />
+      lower="-1.57"
+      upper="1.57"
+      effort="30"
+      velocity="10.88" />
   </joint>
   <link
     name="ll1">
@@ -730,15 +652,6 @@ limitations under the License. -->
           rgba="0.76 0.76 0.76 0.2" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/Hip_Pitch_Left.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_ll1"
@@ -753,10 +666,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-2.0594885173533086"
-      upper="2.0594885173533086"
-      effort="100"
-      velocity="50" />
+      lower="-1.8"
+      upper="1.57"
+      effort="45"
+      velocity="12.5" />
   </joint>
   <link
     name="ll2">
@@ -788,15 +701,6 @@ limitations under the License. -->
           rgba="0.4 0.4 0.4 0.3" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/Hip_Roll_Left.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_ll2"
@@ -811,10 +715,10 @@ limitations under the License. -->
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-0.3665191429188092"
-      upper="1.53588974175501"
-      effort="100"
-      velocity="50" />
+      lower="-0.2"
+      upper="1.57"
+      effort="30"
+      velocity="10.9" />
   </joint>
   <link
     name="ll3">
@@ -851,9 +755,7 @@ limitations under the License. -->
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <!-- <mesh
-          filename="meshes/Hip_Yaw_Left.STL" /> -->
-          <cylinder radius="0.05" length="0.2" />
+        <cylinder radius="0.05" length="0.16" />
       </geometry>
     </collision>
   </link>
@@ -870,10 +772,10 @@ limitations under the License. -->
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-1.0122909661567112"
-      upper="1.0122909661567112"
-      effort="100"
-      velocity="50" />
+      lower="-1"
+      upper="1"
+      effort="30"
+      velocity="10.9" />
   </joint>
   <link
     name="ll4">
@@ -907,12 +809,10 @@ limitations under the License. -->
     </visual>
     <collision>
       <origin
-        xyz="0 0 -0.14"
+        xyz="0 0 -0.12"
         rpy="0 0 0" />
       <geometry>
-        <!-- <mesh
-          filename="meshes/Shank_Left.STL" /> -->
-          <cylinder radius="0.03" length="0.2" />
+        <cylinder radius="0.05" length="0.15" />
       </geometry>
     </collision>
   </link>
@@ -929,10 +829,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-0.19198621771937624"
-      upper="2.1467549799530254"
-      effort="100"
-      velocity="50" />
+      lower="0"
+      upper="2.34"
+      effort="60"
+      velocity="11.7" />
   </joint>
   <link
     name="ll5">
@@ -964,15 +864,6 @@ limitations under the License. -->
           rgba="0.4 0.4 0.4 0.3" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/Ankle_Cross_Left.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_ll5"
@@ -987,10 +878,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-0.40142572795869574"
-      upper="0.8552113334772213"
-      effort="100"
-      velocity="50" />
+      lower="-0.87"
+      upper="0.35"
+      effort="20"
+      velocity="18.8" />
   </joint>
   <link
     name="ll6">
@@ -1001,11 +892,11 @@ limitations under the License. -->
       <mass
         value="0.685" />
       <inertia
-        ixx="0.000738"
-        ixy="0.000000"
-        ixz="-0.000147"
+        ixx="0.002214"
+        ixy="0"
+        ixz="-0.000114"
         iyy="0.002385"
-        iyz="0.000000"
+        iyz="0"
         izz="0.002671" />
     </inertial>
     <visual>
@@ -1045,12 +936,11 @@ limitations under the License. -->
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-0.41887902047863906"
-      upper="0.7853981633974483"
-      effort="100"
-      velocity="50" />
+      lower="-0.44"
+      upper="0.44"
+      effort="15"
+      velocity="12.4" />
   </joint>
-  
   <link
     name="lr1">
     <inertial>
@@ -1081,15 +971,6 @@ limitations under the License. -->
           rgba="0.76 0.76 0.76 0.2" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/Hip_Pitch_Right.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_lr1"
@@ -1104,10 +985,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-2.0594885173533086"
-      upper="2.0594885173533086"
-      effort="100"
-      velocity="50" />
+      lower="-1.8"
+      upper="1.57"
+      effort="45"
+      velocity="12.5" />
   </joint>
   <link
     name="lr2">
@@ -1139,15 +1020,6 @@ limitations under the License. -->
           rgba="0.4 0.4 0.4 0.3" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/Hip_Roll_Right.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_lr2"
@@ -1162,10 +1034,10 @@ limitations under the License. -->
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-1.53588974175501"
-      upper="0.3665191429188092"
-      effort="100"
-      velocity="50" />
+      lower="-1.57"
+      upper="0.2"
+      effort="30"
+      velocity="10.9" />
   </joint>
   <link
     name="lr3">
@@ -1202,9 +1074,7 @@ limitations under the License. -->
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <!-- <mesh
-          filename="meshes/Hip_Yaw_Right.STL" /> -->
-          <cylinder radius="0.05" length="0.2" />
+        <cylinder radius="0.05" length="0.16" />
       </geometry>
     </collision>
   </link>
@@ -1221,10 +1091,10 @@ limitations under the License. -->
     <axis
       xyz="0 0 1" />
     <limit
-      lower="-1.0122909661567112"
-      upper="1.0122909661567112"
-      effort="100"
-      velocity="50" />
+      lower="-1"
+      upper="1"
+      effort="30"
+      velocity="10.9" />
   </joint>
   <link
     name="lr4">
@@ -1258,12 +1128,10 @@ limitations under the License. -->
     </visual>
     <collision>
       <origin
-        xyz="0 0 -0.14"
+        xyz="0 0 -0.12"
         rpy="0 0 0" />
       <geometry>
-        <!-- <mesh
-          filename="meshes/Shank_Left.STL" /> -->
-          <cylinder radius="0.03" length="0.2" />
+        <cylinder radius="0.05" length="0.15" />
       </geometry>
     </collision>
   </link>
@@ -1280,10 +1148,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-0.19198621771937624"
-      upper="2.1467549799530254"
-      effort="100"
-      velocity="50" />
+      lower="0"
+      upper="2.34"
+      effort="60"
+      velocity="11.7" />
   </joint>
   <link
     name="lr5">
@@ -1315,15 +1183,6 @@ limitations under the License. -->
           rgba="0.4 0.4 0.4 0.3" />
       </material>
     </visual>
-    <!-- <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="meshes/Ankle_Cross_Right.STL" />
-      </geometry>
-    </collision> -->
   </link>
   <joint
     name="joint_lr5"
@@ -1338,10 +1197,10 @@ limitations under the License. -->
     <axis
       xyz="0 1 0" />
     <limit
-      lower="-0.40142572795869574"
-      upper="0.8552113334772213"
-      effort="100"
-      velocity="50" />
+      lower="-0.87"
+      upper="0.35"
+      effort="20"
+      velocity="18.8" />
   </joint>
   <link
     name="lr6">
@@ -1352,11 +1211,11 @@ limitations under the License. -->
       <mass
         value="0.685" />
       <inertia
-        ixx="0.000738"
-        ixy="0.000000"
-        ixz="-0.000147"
+        ixx="0.002214"
+        ixy="0"
+        ixz="-0.000114"
         iyy="0.002385"
-        iyz="0.000000"
+        iyz="0"
         izz="0.002671" />
     </inertial>
     <visual>
@@ -1396,10 +1255,10 @@ limitations under the License. -->
     <axis
       xyz="1 0 0" />
     <limit
-      lower="-0.41887902047863906"
-      upper="0.7853981633974483"
-      effort="100"
-      velocity="50" />
+      lower="-0.44"
+      upper="0.44"
+      effort="15"
+      velocity="12.4" />
   </joint>
 </robot>
 
