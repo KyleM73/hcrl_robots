@@ -14,7 +14,7 @@
         <cylinder length="0.03" radius="0.09"/>
       </geometry>
     </collision>
-    <collision>
+    <!-- <collision>
       <origin rpy="0 0 0" xyz="-0.06 0 0.06"/>
       <geometry>
         <sphere radius="0.09"/>
@@ -25,7 +25,7 @@
       <geometry>
         <sphere radius="0.09"/>
       </geometry>
-    </collision>
+    </collision> -->
     <inertial>
       <mass value="0.629769"/>
       <inertia
@@ -57,7 +57,7 @@
         <cylinder length="0.2830" radius="0.09"/>
       </geometry>
     </collision>
-    <collision>
+    <!-- <collision>
       <origin rpy="0 0 0" xyz="0 0 -0.333"/>
       <geometry>
         <sphere radius="0.09"/>
@@ -68,7 +68,7 @@
       <geometry>
         <sphere radius="0.09"/>
       </geometry>
-    </collision>
+    </collision> -->
     <inertial>
       <mass value="4.970684"/>
       <inertia
@@ -97,10 +97,10 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.12" radius="0.09"/>
+        <cylinder length="0.26" radius="0.09"/>
       </geometry>
     </collision>
-    <collision>
+    <!-- <collision>
       <origin rpy="0 0 0" xyz="0 0 -0.06"/>
       <geometry>
         <sphere radius="0.09"/>
@@ -111,7 +111,7 @@
       <geometry>
         <sphere radius="0.09"/>
       </geometry>
-    </collision>
+    </collision> -->
     <inertial>
       <mass value="0.646926"/>
       <inertia
@@ -171,10 +171,10 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <cylinder length="0.12" radius="0.09"/>
+        <cylinder length="0.22" radius="0.09"/>
       </geometry>
     </collision>
-    <collision>
+    <!-- <collision>
       <origin rpy="0 0 0" xyz="0 0 0.06"/>
       <geometry>
         <sphere radius="0.09"/>
@@ -185,7 +185,7 @@
       <geometry>
         <sphere radius="0.09"/>
       </geometry>
-    </collision>
+    </collision> -->
     <inertial>
       <mass value="3.587895"/>
       <inertia
@@ -217,7 +217,7 @@
         <cylinder length="0.1" radius="0.09"/>
       </geometry>
     </collision>
-    <collision>
+    <!-- <collision>
       <origin rpy="0 0 0" xyz="0 0 -0.31"/>
       <geometry>
         <sphere radius="0.09"/>
@@ -228,14 +228,14 @@
       <geometry>
         <sphere radius="0.09"/>
       </geometry>
-    </collision>
+    </collision> -->
     <collision>
       <origin rpy="0 0 0" xyz="0 0.08 -0.13"/>
       <geometry>
         <cylinder length="0.14" radius="0.055"/>
       </geometry>
     </collision>
-    <collision>
+    <!-- <collision>
       <origin rpy="0 0 0" xyz="0 0.08 -0.06"/>
       <geometry>
         <sphere radius="0.055"/>
@@ -246,7 +246,7 @@
       <geometry>
         <sphere radius="0.055"/>
       </geometry>
-    </collision>
+    </collision> -->
     <inertial>
       <mass value="1.225946"/>
       <inertia
@@ -275,10 +275,10 @@
     <collision>
       <origin rpy="0 0 0" xyz="0 0 -0.03"/>
       <geometry>
-        <cylinder length="0.08" radius="0.08"/>
+        <cylinder length="0.20" radius="0.08"/>
       </geometry>
     </collision>
-    <collision>
+    <!-- <collision>
       <origin rpy="0 0 0" xyz="0 0 0.01"/>
       <geometry>
         <sphere radius="0.08"/>
@@ -289,7 +289,7 @@
       <geometry>
         <sphere radius="0.08"/>
       </geometry>
-    </collision>
+    </collision> -->
     <inertial>
       <mass value="1.666555"/>
       <inertia
@@ -356,6 +356,12 @@
       <origin xyz="0.055 0 0.015" rpy="0 0 0"/>
       <geometry>
         <box size="0.11 0.06 0.075"/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin rpy="1.57 0 0" xyz="0.11 0 0.026"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.025"/>
       </geometry>
     </collision>
   </link>
