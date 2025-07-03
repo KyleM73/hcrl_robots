@@ -45,8 +45,9 @@
       <inertia ixx="0.645" ixy="0.0" ixz="0.0" iyy="0.645" iyz="0.0" izz="2.25"/>
     </inertial>
     <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.3"/>
       <geometry>
-        <cylinder radius="0.36" length="0.5"/>
+        <cylinder radius="0.36" length="0.1"/>
       </geometry>
     </collision>
     <!-- <visual>
