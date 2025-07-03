@@ -49,16 +49,9 @@
         <cylinder radius="0.36" length="0.5"/>
       </geometry>
     </collision>
-    <!-- <visual>
+    <visual>
       <geometry>
         <cylinder radius="0.36" length="0.6"/>
-      </geometry>
-    </visual> -->
-    <visual>
-      <origin rpy="0 0 1.5708" xyz="0 0 0"/>
-      <geometry>
-        <!--<cylinder length="0.6318758" radius="0.3048"/>-->
-        <mesh filename="meshes/bumpybot_full.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
   </link>
