@@ -367,7 +367,7 @@
   </link>
 
   <joint name="plato_ee_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.175 0 -0.07"/>
+    <origin rpy="0 0 0" xyz="0.175 0.04 -0.07"/>
     <parent link="plato_base"/>
     <child link="plato_ee"/>
   </joint>
@@ -512,7 +512,7 @@
   </link>
 
   <joint name="plato_finger0_jointnail" type="fixed">
-    <origin rpy="0 0 0" xyz="0.01 -0.0005 0"/>
+    <origin rpy="0 0 0" xyz="0 -0.0005 0"/>
     <parent link="plato_finger0_link2"/>
     <child link="plato_finger0_linknail"/>
   </joint>
@@ -607,7 +607,7 @@
   </link>
 
   <joint name="plato_finger1_jointnail" type="fixed">
-    <origin rpy="0 0 0" xyz="0.01 0.0005 0"/>
+    <origin rpy="0 0 0" xyz="0 0.0005 0"/>
     <parent link="plato_finger1_link2"/>
     <child link="plato_finger1_linknail"/>
   </joint>
@@ -702,7 +702,7 @@
   </link>
 
   <joint name="plato_finger2_jointnail" type="fixed">
-    <origin rpy="0 0 0" xyz="0.01 0.0005 0"/>
+    <origin rpy="0 0 0" xyz="0 0.0005 0"/>
     <parent link="plato_finger2_link2"/>
     <child link="plato_finger2_linknail"/>
   </joint>
