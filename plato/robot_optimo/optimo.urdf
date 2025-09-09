@@ -16,13 +16,13 @@
   <link name="optimo_link0">
     <visual>
       <geometry>
-        <mesh filename="meshes/J0_clean.stl"/>
+        <mesh filename="package://meshes/optimo/J0_clean.stl"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="meshes/col0.stl"/>
+        <mesh filename="package://meshes/optimo/col0.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -43,14 +43,14 @@
     <visual>
       <origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/J1_clean.stl"/>
+        <mesh filename="package://meshes/optimo/J1_clean.stl"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/col1.stl"/>
+        <mesh filename="package://meshes/optimo/col1.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -71,14 +71,14 @@
     <visual>
       <origin rpy="1.5707963267948966 0 0" xyz="0 0 0.003"/>
       <geometry>
-        <mesh filename="meshes/J2_clean.stl"/>
+        <mesh filename="package://meshes/optimo/J2_clean.stl"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/col2.stl"/>
+        <mesh filename="package://meshes/optimo/col2.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -99,14 +99,14 @@
     <visual>
       <origin rpy="-1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/J3_clean.stl"/>
+        <mesh filename="package://meshes/optimo/J3_clean.stl"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="-1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/col3.stl"/>
+        <mesh filename="package://meshes/optimo/col3.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -127,14 +127,14 @@
     <visual>
       <origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/J4_clean.stl"/>
+        <mesh filename="package://meshes/optimo/J4_clean.stl"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/col4.stl"/>
+        <mesh filename="package://meshes/optimo/col4.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -155,14 +155,14 @@
     <visual>
       <origin rpy="-1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/J5_clean.stl"/>
+        <mesh filename="package://meshes/optimo/J5_clean.stl"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="-1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/col5.stl"/>
+        <mesh filename="package://meshes/optimo/col5.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -183,14 +183,14 @@
     <visual>
       <origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/J6_clean.stl"/>
+        <mesh filename="package://meshes/optimo/J6_clean.stl"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <origin rpy="1.5707963267948966 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="meshes/col6.stl"/>
+        <mesh filename="package://meshes/optimo/col6.stl"/>
       </geometry>
     </collision>
     <inertial>
@@ -211,13 +211,13 @@
     <visual>
       <origin xyz="0.0 0.0 0.011"/>
       <geometry>
-        <mesh filename="meshes/J7_clean.stl"/>
+        <mesh filename="package://meshes/optimo/J7_clean.stl"/>
       </geometry>
       <material name="white"/>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="meshes/col7.stl"/>
+        <mesh filename="package://meshes/optimo/col7.stl"/>
       </geometry>
     </collision>
     <inertial>
