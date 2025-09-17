@@ -1,110 +1,140 @@
 <?xml version="1.0" ?>
-
-<robot name="Chaser">
+<robot name="Spacecraft">
 
   <!-- Colors -->
   <material name="Grey">
     <color rgba="0.2 0.2 0.2 1.0"/>
   </material>
   <material name="Orange">
-    <color rgba="1.0 0.423529411765 0.0392156862745 1.0"/>
+    <color rgba="1.0 0.4235 0.0392 1.0"/>
   </material>
   <material name="Blue">
-  <color rgba="0.5 0.7 1.0 1.0"/>      
+    <color rgba="0.5 0.7 1.0 1.0"/>      
   </material>
   <material name="Red">
     <color rgba="1 0 0 1.0"/>      
   </material>
 
-
-
-  <!--Spacecraft-->
-  <link name="Spacecraft">
+  <!-- base_link -->
+  <link name="base_link">
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="0.001"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+    </inertial>
+  </link>
+
+  <joint name="base_to_body" type="fixed">
+    <parent link="base_link"/>
+    <child link="body"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- body -->
+  <link name="body">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="100"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      <inertia ixx="52.083" ixy="0" ixz="0" iyy="46.354" iyz="0" izz="31.770"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="1.25 1.5 2" />
+        <box size="1.25 1.5 2"/>
       </geometry>
       <material name="Grey"/>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.25 1.5 2"/>
+      </geometry>
+    </collision>
   </link>
-  <!-- Joint to Left Solar Panel -->
-  <joint name="Spacecraft_Left_Panel" type="fixed">
-    <parent link="Spacecraft"/>
-    <child link="Left_Panel"/>
-    <origin rpy="0 0 0" xyz="0 -0.75 0"/>
-    <axis xyz="0 0 1"/>
-  </joint>
-  <!-- Joint to Right Solar Panel -->
-  <joint name="Spacecraft_Right_Panel" type="fixed">
-    <parent link="Spacecraft"/>
-    <child link="Right_Panel"/>
-    <origin rpy="0 0 0" xyz="0 0.75 0"/>
-    <axis xyz="0 0 1"/>
+
+  <!-- Joints -->
+  <joint name="body_left_panel" type="fixed">
+    <parent link="body"/>
+    <child link="left_panel"/>
+    <origin xyz="0 -0.75 0" rpy="0 0 0"/>
   </joint>
 
-  <!-- Joint to Grappling fixture -->
-  <joint name="Spacecraft_Fixture" type="fixed">
-    <parent link="Spacecraft"/>
-    <child link="Fixture"/>
-    <origin rpy="0 0 0" xyz="0 0 1"/>
-    <axis xyz="0 0 1"/>
+  <joint name="body_right_panel" type="fixed">
+    <parent link="body"/>
+    <child link="right_panel"/>
+    <origin xyz="0 0.75 0" rpy="0 0 0"/>
   </joint>
 
+  <joint name="body_fixture" type="fixed">
+    <parent link="body"/>
+    <child link="fixture"/>
+    <origin xyz="0 0 1" rpy="0 0 0"/>
+  </joint>
 
-  <!-- Left Solar Panel-->
-  <link name="Left_Panel">
+  <!-- Left Solar Panel -->
+  <link name="left_panel">
     <inertial>
-      <origin rpy="0 0 0" xyz="0 -1.5 0"/>
+      <origin xyz="0 -1.5 0" rpy="0 0 0"/>
       <mass value="20"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      <inertia ixx="15.0" ixy="0" ixz="0" iyy="1.30208" iyz="0" izz="7.03125"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 -1.5 0"/>
+      <origin xyz="0 -1.5 0" rpy="0 0 0"/>
       <geometry>
         <box size="0.25 3 1.5"/>
       </geometry>
       <material name="Blue"/>
     </visual>
+    <collision>
+      <origin xyz="0 -1.5 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.25 3 1.5"/>
+      </geometry>
+    </collision>
   </link>
 
-  <!-- Right Solar Panel-->
-  <link name="Right_Panel">
+  <!-- Right Solar Panel -->
+  <link name="right_panel">
     <inertial>
-      <origin rpy="0 0 0" xyz="0 1.5 0"/>
+      <origin xyz="0 1.5 0" rpy="0 0 0"/>
       <mass value="20"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      <inertia ixx="15.0" ixy="0" ixz="0" iyy="1.30208" iyz="0" izz="7.03125"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 1.5 0"/>
+      <origin xyz="0 1.5 0" rpy="0 0 0"/>
       <geometry>
         <box size="0.25 3 1.5"/>
       </geometry>
       <material name="Blue"/>
     </visual>
+    <collision>
+      <origin xyz="0 1.5 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.25 3 1.5"/>
+      </geometry>
+    </collision>
   </link>
 
-  <!-- Grappling Fixture-->
-  <link name="Fixture">
+  <link name="fixture">
     <inertial>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="20"/>
-      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1"/>
+      <inertia ixx="0.004" ixy="0" ixz="0" iyy="0.004" iyz="0" izz="0.004"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <sphere radius="0.1"/>
       </geometry>
       <material name="Red"/>
     </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <sphere radius="0.1"/>
+      </geometry>
+    </collision>
   </link>
-  
-  
-</robot>
 
+
+</robot>
