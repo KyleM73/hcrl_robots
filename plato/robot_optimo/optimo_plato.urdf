@@ -13,7 +13,7 @@
     <parent link="world"/>
     <child link="optimo_link0"/>
     <origin rpy="0 0 0" xyz="0 0 .27"/>
-  </joint>
+  </joint> 
   <link name="optimo_link0">
     <visual>
       <geometry>
@@ -274,7 +274,7 @@
   </link>
 
   <joint name="plato_ee_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.0 -0.175 -0.07"/>
+    <origin rpy="0 0 -1.5708" xyz="0.0 -0.175 -0.07"/>
     <parent link="plato_base"/>
     <child link="plato_ee"/>
   </joint>
@@ -374,7 +374,16 @@
         <mesh filename="package://meshes/plato/plato_finger1_link2.stl"/>
       </geometry>
     </collision>
-    <!-- Part finger_nail -->
+  </link>
+
+  <!-- Finger 1 extras: nail + pad as separate links -->
+  <link name="plato_finger1_nail">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-8"/>
+      <inertia ixx="1e-8" ixy="0" ixz="0"
+               iyy="1e-8" iyz="0" izz="1e-8"/>
+    </inertial>
     <visual>
       <origin xyz="-0.00596456 -0.0206712 -0.003" rpy="2.00713 1.5708 0"/>
       <geometry>
@@ -390,7 +399,14 @@
         <mesh filename="package://meshes/plato/finger_nail.stl"/>
       </geometry>
     </collision>
-    <!-- Part gel_2x4_silicone -->
+  </link>
+  <link name="plato_finger1_pad">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-8"/>
+      <inertia ixx="1e-8" ixy="0" ixz="0"
+               iyy="1e-8" iyz="0" izz="1e-8"/>
+    </inertial>
     <visual>
       <origin xyz="-0.0393241 0.001203 0.0106496" rpy="1.5708 1.5708 0"/>
       <geometry>
@@ -407,6 +423,19 @@
       </geometry>
     </collision>
   </link>
+
+  <joint name="plato_finger1_jointnail" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.0005 0"/>
+    <parent link="plato_finger1_link2"/>
+    <child link="plato_finger1_nail"/>
+  </joint>
+
+  <joint name="plato_finger1_pad" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.0005 0"/>
+    <parent link="plato_finger1_link2"/>
+    <child link="plato_finger1_pad"/>
+  </joint>
+
   <!-- Joint from plato_finger1_link1 to plato_finger1_link2 -->
   <joint name="plato_finger1_joint2" type="revolute">
     <origin xyz="-0.06 0 -0.0105" rpy="-3.14159 -5.51605e-30 4.59177e-41"/>
@@ -439,6 +468,7 @@
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="-0.785398" upper="0.785398"/>
   </joint>
+
   <!-- Link plato_finger2_link1 -->
   <link name="plato_finger2_link1">
     <inertial>
@@ -463,29 +493,13 @@
       </geometry>
     </collision>
   </link>
-  <!-- Link plato_finger2_link2 -->
+  <!-- Link plato_finger2_link2 (clean: no embedded nail/pad) -->
   <link name="plato_finger2_link2">
     <inertial>
       <origin xyz="-0.0368138 1.97334e-05 -0.00300054" rpy="0 0 0"/>
       <mass value="0.0547792"/>
       <inertia ixx="3.18727e-06" ixy="-5.8484e-07" ixz="2.179e-10" iyy="1.92547e-05" iyz="-1.08224e-10" izz="1.83601e-05"/>
     </inertial>
-    <!-- Part finger_nail_2 -->
-    <visual>
-      <origin xyz="-0.00608548 0.020339 -0.00299995" rpy="1.5708 -1.5708 -2.70526"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/finger_nail.stl"/>
-      </geometry>
-      <material name="finger_nail_2_material">
-        <color rgba="0.529412 0.568627 0.6 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.00608548 0.020339 -0.00299995" rpy="1.5708 -1.5708 -2.70526"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/finger_nail.stl"/>
-      </geometry>
-    </collision>
     <!-- Part plato_finger2_link2 -->
     <visual>
       <origin xyz="-0.0395 -0.0012 -0.01665" rpy="-1.5708 -1.5708 0"/>
@@ -502,23 +516,57 @@
         <mesh filename="package://meshes/plato/plato_finger2_link2.stl"/>
       </geometry>
     </collision>
-    <!-- Part gel_2x4_silicone_2 -->
+  </link>
+
+  <!-- New: finger 2 nail link -->
+  <link name="plato_finger2_nail">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-8"/>
+      <inertia ixx="1e-8" ixy="0" ixz="0" iyy="1e-8" iyz="0" izz="1e-8"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.00608548 0.020339 -0.00299995" rpy="1.5708 -1.5708 -2.70526"/>
+      <geometry><mesh filename="package://meshes/plato/finger_nail.stl"/></geometry>
+      <material name="finger_nail_2_material"><color rgba="0.529412 0.568627 0.6 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00608548 0.020339 -0.00299995" rpy="1.5708 -1.5708 -2.70526"/>
+      <geometry><mesh filename="package://meshes/plato/finger_nail.stl"/></geometry>
+    </collision>
+  </link>
+
+  <!-- New: finger 2 pad link -->
+  <link name="plato_finger2_pad">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-8"/>
+      <inertia ixx="1e-8" ixy="0" ixz="0" iyy="1e-8" iyz="0" izz="1e-8"/>
+    </inertial>
     <visual>
       <origin xyz="-0.0393219 -0.001203 -0.0166496" rpy="-1.5708 -1.5708 0"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/gel_2x4_silicone.stl"/>
-      </geometry>
-      <material name="gel_2x4_silicone_2_material">
-        <color rgba="0.647059 0.647059 0.647059 1"/>
-      </material>
+      <geometry><mesh filename="package://meshes/plato/gel_2x4_silicone.stl"/></geometry>
+      <material name="gel_2x4_silicone_2_material"><color rgba="0.647059 0.647059 0.647059 1"/></material>
     </visual>
     <collision>
       <origin xyz="-0.0393219 -0.001203 -0.0166496" rpy="-1.5708 -1.5708 0"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/gel_2x4_silicone.stl"/>
-      </geometry>
+      <geometry><mesh filename="package://meshes/plato/gel_2x4_silicone.stl"/></geometry>
     </collision>
   </link>
+
+  <!-- Fixed joints from finger2_link2 to nail/pad -->
+  <joint name="plato_finger2_jointnail" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="plato_finger2_link2"/>
+    <child link="plato_finger2_nail"/>
+  </joint>
+
+  <joint name="plato_finger2_pad" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="plato_finger2_link2"/>
+    <child link="plato_finger2_pad"/>
+  </joint>
+
   <!-- Joint from plato_finger2_link1 to plato_finger2_link2 -->
   <joint name="plato_finger2_joint2" type="revolute">
     <origin xyz="-0.06 -1.73472e-18 -0.0105" rpy="-3.14159 -5.81785e-30 0"/>
@@ -535,6 +583,7 @@
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="-1.0472" upper="1.0472"/>
   </joint>
+
   <!-- Link plato_finger3_link1 -->
   <link name="plato_finger3_link1">
     <inertial>
@@ -559,45 +608,13 @@
       </geometry>
     </collision>
   </link>
-  <!-- Link plato_finger3_link2 -->
+  <!-- Link plato_finger3_link2 (clean: no embedded nail/pad) -->
   <link name="plato_finger3_link2">
     <inertial>
       <origin xyz="-0.0368127 2.08487e-05 -0.00300002" rpy="0 0 0"/>
       <mass value="0.054769"/>
       <inertia ixx="3.18614e-06" ixy="-5.84424e-07" ixz="9.12334e-11" iyy="1.92522e-05" iyz="6.8963e-11" izz="1.8358e-05"/>
     </inertial>
-    <!-- Part finger_nail_3 -->
-    <visual>
-      <origin xyz="-0.00608548 0.020339 -0.00300005" rpy="-1.5708 -1.5708 0.436332"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/finger_nail.stl"/>
-      </geometry>
-      <material name="finger_nail_3_material">
-        <color rgba="0.529412 0.568627 0.6 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.00608548 0.020339 -0.00300005" rpy="-1.5708 -1.5708 0.436332"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/finger_nail.stl"/>
-      </geometry>
-    </collision>
-    <!-- Part gel_2x4_silicone_3 -->
-    <visual>
-      <origin xyz="-0.0393241 -0.001203 -0.0166496" rpy="-1.5708 -1.5708 0"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/gel_2x4_silicone.stl"/>
-      </geometry>
-      <material name="gel_2x4_silicone_3_material">
-        <color rgba="0.647059 0.647059 0.647059 1"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0393241 -0.001203 -0.0166496" rpy="-1.5708 -1.5708 0"/>
-      <geometry>
-        <mesh filename="package://meshes/plato/gel_2x4_silicone.stl"/>
-      </geometry>
-    </collision>
     <!-- Part plato_finger3_link2 -->
     <visual>
       <origin xyz="-0.0395 -0.0012 -0.01665" rpy="-1.5708 -1.5708 0"/>
@@ -615,6 +632,56 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- New: finger 3 nail link -->
+  <link name="plato_finger3_nail">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-8"/>
+      <inertia ixx="1e-8" ixy="0" ixz="0" iyy="1e-8" iyz="0" izz="1e-8"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.00608548 0.020339 -0.00300005" rpy="-1.5708 -1.5708 0.436332"/>
+      <geometry><mesh filename="package://meshes/plato/finger_nail.stl"/></geometry>
+      <material name="finger_nail_3_material"><color rgba="0.529412 0.568627 0.6 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="-0.00608548 0.020339 -0.00300005" rpy="-1.5708 -1.5708 0.436332"/>
+      <geometry><mesh filename="package://meshes/plato/finger_nail.stl"/></geometry>
+    </collision>
+  </link>
+
+  <!-- New: finger 3 pad link -->
+  <link name="plato_finger3_pad">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1e-8"/>
+      <inertia ixx="1e-8" ixy="0" ixz="0" iyy="1e-8" iyz="0" izz="1e-8"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0393241 -0.001203 -0.0166496" rpy="-1.5708 -1.5708 0"/>
+      <geometry><mesh filename="package://meshes/plato/gel_2x4_silicone.stl"/></geometry>
+      <material name="gel_2x4_silicone_3_material"><color rgba="0.647059 0.647059 0.647059 1"/></material>
+    </visual>
+    <collision>
+      <origin xyz="-0.0393241 -0.001203 -0.0166496" rpy="-1.5708 -1.5708 0"/>
+      <geometry><mesh filename="package://meshes/plato/gel_2x4_silicone.stl"/></geometry>
+    </collision>
+  </link>
+
+  <!-- Fixed joints from finger3_link2 to nail/pad -->
+  <joint name="plato_finger3_jointnail" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="plato_finger3_link2"/>
+    <child link="plato_finger3_nail"/>
+  </joint>
+
+  <joint name="plato_finger3_pad" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="plato_finger3_link2"/>
+    <child link="plato_finger3_pad"/>
+  </joint>
+
   <!-- Joint from plato_finger3_link1 to plato_finger3_link2 -->
   <joint name="plato_finger3_joint2" type="revolute">
     <origin xyz="-0.06 -1.73472e-18 -0.0045" rpy="-1.97215e-31 -6.06437e-30 9.18355e-41"/>
@@ -631,4 +698,5 @@
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="-1.0472" upper="1.0472"/>
   </joint>
+
 </robot>
